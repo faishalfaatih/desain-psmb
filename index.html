@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PSMB - PPTQ Ibnu Abbas Klaten</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <style>
+      :root {
+        --bs-primary-green: #198754;
+        --bs-light-green: #eaf5eb;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
+      body {
+        background-color: #f4f6f9;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+
+      /* Hero Section Background Image & Overlay */
+      .hero-section {
+        position: relative;
+        /* Overlay warna hijau gradasi transparan di atas gambar latar */
+        background:
+          linear-gradient(rgba(15, 56, 35, 0.75), rgba(10, 40, 25, 0.92)),
+          url("hero-bg.jpeg") center/cover no-repeat;
+        color: white;
+        padding: 100px 0 140px 0; /* Padding bawah lebih besar untuk ruang overlapping card */
+        border-radius: 0;
+      }
+
+      .hero-section h1,
+      .hero-section p {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Overlapping Card / Floating Bar */
+      .floating-stats-bar {
+        margin-top: -70px;
+        position: relative;
+        z-index: 10;
+      }
+
+      /* Animasi Hover Stat Card */
+      .stat-item {
+        transition: transform 0.3s ease;
+      }
+      .stat-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .hero-section .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Hover animation */
+      .service-card,
+      .feature-card,
+      .testimonial-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .service-card:hover,
+      .feature-card:hover,
+      .testimonial-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1) !important;
+      }
+
+      .icon-box {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+      }
+
+      .step-number {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: var(--bs-primary-green);
+        color: white;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+
+      /* Custom Nav Pills for Units */
+      .nav-pills .nav-link {
+        color: #198754;
+        font-weight: 600;
+        border-radius: 50rem;
+        padding: 0.6rem 1.5rem;
+        border: 1px solid rgba(25, 135, 84, 0.2);
+        background-color: #ffffff;
+        margin: 0.25rem;
+      }
+      .nav-pills .nav-link.active {
+        background-color: #198754;
+        color: #ffffff;
+      }
+
+      footer {
+        background-color: #0f3823;
+        color: #a3c9b8;
+      }
+      footer a {
+        color: #d1e7dd;
+      }
+      footer a:hover {
+        color: #ffffff;
+      }
+
+      /* Custom Accordion Button Style */
+      .accordion-button:not(.collapsed) {
+        color: var(--bs-primary-green);
+        background-color: #ffffff;
+        box-shadow: none;
+      }
+      .accordion-button:focus {
+        box-shadow: none;
+        border-color: rgba(25, 135, 84, 0.25);
+      }
+
+      /* CSS Grid Responsive untuk Accordion Keunggulan */
+      .accordion-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Default 1 kolom untuk mobile */
+        gap: 1rem; /* Jarak seragam vertikal untuk mobile */
+      }
+
+      @media (min-width: 992px) {
+        /* Tampilan Desktop / PC */
+        .accordion-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 kolom di PC */
+          gap: 1.25rem 1.5rem; /* Jarak antar baris dan kolom */
+        }
+      }
+
+      /* Scroll Snap & Custom Scrollbar Carousel Tokoh */
+      .horizontal-scroll-snap {
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+
+        /* Sembunyikan scrollbar untuk Firefox, IE, dan Edge */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+
+      .horizontal-scroll-snap > [class*="col-"] {
+        scroll-snap-align: start;
+      }
+
+      /* Sembunyikan scrollbar untuk Chrome, Safari, dan Opera */
+      .horizontal-scroll-snap::-webkit-scrollbar {
+        display: none;
+      }
+
+      .horizontal-scroll-snap::-webkit-scrollbar-track {
+        background: var(--bs-light-green);
+        border-radius: 10px;
+      }
+
+      .horizontal-scroll-snap::-webkit-scrollbar-thumb {
+        background: var(--bs-primary-green);
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+      <div class="container">
+        <!-- Logo / Brand (Kiri) -->
+        <a class="navbar-brand d-flex align-items-center fw-bold text-success" href="#">
+          <span>PSMB | PPTQ Ibnu Abbas</span>
+        </a>
+
+        <!-- Toggler Button untuk Mobile -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Menu Navigasi Tengah (mx-auto) -->
+          <ul class="navbar-nav mx-auto align-items-lg-center my-2 my-lg-0">
+            <li class="nav-item me-lg-3">
+              <a class="nav-link active fw-semibold text-center" href="psmb.html">Beranda</a>
+            </li>
+            <li class="nav-item me-lg-3">
+              <a class="nav-link fw-semibold text-center" href="brosur.html">Brosur</a>
+            </li>
+            <li class="nav-item me-lg-3">
+              <a class="nav-link fw-semibold text-center" href="pengumuman.html">Pengumuman</a>
+            </li>
+          </ul>
+
+          <!-- Tombol Masuk & Daftar Sekarang (Kanan) -->
+          <div class="d-flex justify-content-center justify-content-lg-end gap-2 mt-2 mt-lg-0">
+            <!-- Tombol Masuk -->
+            <a class="btn btn-outline-success rounded-pill px-4 fw-bold" href="login.html"> <i class="bi bi-box-arrow-in-right me-1"></i> Masuk </a>
+
+            <!-- Tombol Daftar Sekarang -->
+            <a class="btn btn-success rounded-pill px-4 fw-bold" href="#unit-pendidikan"> <i class="bi bi-pencil-square me-1"></i> Daftar Sekarang </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero" class="hero-section text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <!-- Pill Badge / Tag Label -->
+            <span class="badge bg-white text-success px-4 py-2 rounded-pill fw-bold mb-3 shadow-sm border border-success border-opacity-10 fs-6 text-wrap"> <i class="bi bi-mortarboard-fill me-2"></i>PSMB Tahun Ajaran 2026/2027 </span>
+
+            <!-- Headline Utama -->
+            <h1 class="display-4 fw-bold mb-3 text-white">Mewujudkan Generasi Qur'ani, Beradab, & Berakhlak Mulia</h1>
+
+            <!-- Deskripsi Singkat -->
+            <p class="lead text-white mb-4 mx-auto opacity-75" style="max-width: 750px">
+              Portal Resmi PSMB PPTQ Ibnu Abbas Klaten. Menghadirkan sistem pendidikan Islam terpadu yang memadukan keunggulan Al-Qur'an, Adab, dan Akademik Sains.
+            </p>
+
+            <!-- Call to Action (CTA) Buttons -->
+            <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+              <a href="#unit-pendidikan" class="btn btn-light btn-lg rounded-pill fw-bold text-success px-4 shadow-sm"> <i class="bi bi-pencil-square me-2"></i>Pilih Unit Pendidikan </a>
+              <a href="#alur" class="btn btn-outline-light btn-lg rounded-pill fw-bold px-4"> Lihat Alur Pendaftaran <i class="bi bi-arrow-right ms-1"></i> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- OVERLAPPING CARD / FLOATING STATS BAR (Center Top Alignment) -->
+    <div class="container floating-stats-bar">
+      <div class="card border-0 rounded-4 shadow-lg bg-white p-4">
+        <!-- Gunakan align-items-start agar setiap kolom dimulai dari posisi atas -->
+        <div class="row g-4 text-center align-items-start">
+          <!-- Stats 1: 5 Jenjang -->
+          <div class="col-6 col-md-3">
+            <!-- Hapus h-100 dan justify-content-between agar subteks rapat di bawah judul -->
+            <div class="stat-item p-2">
+              <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
+                <i class="bi bi-building fs-3"></i>
+              </div>
+              <h3 class="fw-bold text-dark mb-1">5 Jenjang</h3>
+              <span class="text-muted small fw-semibold">Kuttab, SMP, SMA, KMI, MA</span>
+            </div>
+          </div>
+
+          <!-- Stats 2: 2500+ Santri -->
+          <div class="col-6 col-md-3">
+            <div class="stat-item p-2">
+              <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
+                <i class="bi bi-people-fill fs-3"></i>
+              </div>
+              <h3 class="fw-bold text-dark mb-1">2.500+</h3>
+              <span class="text-muted small fw-semibold">Santri & Mahasantri</span>
+            </div>
+          </div>
+
+          <!-- Stats 3: Akreditasi A -->
+          <div class="col-6 col-md-3">
+            <div class="stat-item p-2">
+              <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
+                <i class="bi bi-patch-check-fill fs-3"></i>
+              </div>
+              <h3 class="fw-bold text-dark mb-1">Akreditasi A</h3>
+              <span class="text-muted small fw-semibold">Lembaga Terakreditasi Unggul</span>
+            </div>
+          </div>
+
+          <!-- Stats 4: Bersanad -->
+          <div class="col-6 col-md-3">
+            <div class="stat-item p-2">
+              <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
+                <i class="bi bi-award-fill fs-3"></i>
+              </div>
+              <h3 class="fw-bold text-dark mb-1">Bersanad</h3>
+              <span class="text-muted small fw-semibold">Pengajar Al-Qur'an Mutqin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="alur" class="py-5">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="text-success fw-bold text-uppercase tracking-wider">Tahapan Pendaftaran</span>
+          <h2 class="fw-bold display-6 mt-1">Alur Pendaftaran PSMB</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px">Prosedur pendaftaran santri baru dilakukan secara transparan dan terintegrasi dalam 4 langkah mudah.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 rounded-4 shadow-sm service-card p-4 text-center">
+              <div class="d-flex justify-content-center mb-3">
+                <div class="step-number">1</div>
+              </div>
+              <h5 class="fw-bold mb-2">Ambil Kode</h5>
+              <p class="text-muted small mb-0">Isi formulir pendaftaran awal (jalur dan data dasar) untuk mendapatkan nomor pendaftaran & Virtual Account (VA).</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 rounded-4 shadow-sm service-card p-4 text-center">
+              <div class="d-flex justify-content-center mb-3">
+                <div class="step-number">2</div>
+              </div>
+              <h5 class="fw-bold mb-2">Pembayaran</h5>
+              <p class="text-muted small mb-0">Transfer biaya pendaftaran sebesar nominal yang ditetapkan melalui nomor Virtual Account (VA) yang telah didapatkan.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 rounded-4 shadow-sm service-card p-4 text-center">
+              <div class="d-flex justify-content-center mb-3">
+                <div class="step-number">3</div>
+              </div>
+              <h5 class="fw-bold mb-2">Isi Formulir</h5>
+              <p class="text-muted small mb-0">Setelah lunas, wajib melengkapi formulir utama dan mengunggah scan berkas pendukung pada Dashboard Pendaftaran.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 border-0 rounded-4 shadow-sm service-card p-4 text-center">
+              <div class="d-flex justify-content-center mb-3">
+                <div class="step-number">4</div>
+              </div>
+              <h5 class="fw-bold mb-2">Tes Ujian</h5>
+              <p class="text-muted small mb-0">Mengikuti proses Uji Tes sesuai agenda secara Tertulis & Wawancara sesuai dengan jadwal unit masing-masing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="unit-pendidikan" class="py-5 bg-white border-top border-bottom">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="text-success fw-bold text-uppercase tracking-wider">Unit Pendidikan</span>
+          <h2 class="fw-bold display-6 mt-1">Informasi Unit, Biaya & Brosur</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px">Pilih unit pendidikan di bawah ini untuk melihat rincian satuan unit, waktu pelaksanaan, syarat, biaya, serta materi tes.</p>
+        </div>
+
+        <ul class="nav nav-pills justify-content-center mb-4" id="unitTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="kuttab-tab" data-bs-toggle="pill" data-bs-target="#kuttab" type="button" role="tab">Kuttab</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="smpit-tab" data-bs-toggle="pill" data-bs-target="#smpit" type="button" role="tab">SMPIT</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="smait-tab" data-bs-toggle="pill" data-bs-target="#smait" type="button" role="tab">SMAIT</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="kmi-tab" data-bs-toggle="pill" data-bs-target="#kmi" type="button" role="tab">KMI</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="mahad-tab" data-bs-toggle="pill" data-bs-target="#mahad" type="button" role="tab">Ma'had 'Aly</button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="unitTabContent">
+          <!-- TAB KUTTAB -->
+          <div class="tab-pane fade show active" id="kuttab" role="tabpanel">
+            <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <div>
+                  <h3 class="fw-bold text-success mb-1">Unit Pendidikan Kuttab</h3>
+                  <p class="text-muted mb-0">Pendidikan dasar berkarakter Al-Qur'an dan As-Sunnah.</p>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <span class="fw-bold me-2">Program Tersedia:</span>
+                <span class="badge bg-success-subtle text-success me-1">Kuttab Tahmidi Putra</span>
+                <span class="badge bg-success-subtle text-success me-1">Kuttab Tahmidi Putri</span>
+                <span class="badge bg-success-subtle text-success me-1">Kuttab Awwal Putra</span>
+                <span class="badge bg-success-subtle text-success me-1">Kuttab Awwal Putri</span>
+              </div>
+
+              <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-calendar-check me-2"></i>Waktu Pelaksanaan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pendaftaran Online: 1 - 25 Oktober 2026</li>
+                      <li>Pelaksanaan Tes: 1 November 2026</li>
+                      <li>Pengumuman Hasil: 10 November 2026</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-card-checklist me-2"></i>Syarat Pendaftaran</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Usia berada di rentang 5-7 tahun.</li>
+                      <li>Scan Kartu Keluarga.</li>
+                      <li>Scan Akte Kelahiran.</li>
+                      <li>Scan KTP kedua orang tua.</li>
+                      <li>Pas foto calon santri 3x3.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-cash-stack me-2"></i>Biaya Pendidikan</h6>
+                    <div class="small text-muted">
+                      <p class="fw-semibold mb-1 text-dark">Tahmidi (Putra / Putri):</p>
+                      <ul class="mb-2 ps-3">
+                        <li>Biaya Pendaftaran: Rp 250.000</li>
+                        <li>Daftar Ulang: Rp 8.025.000 (Putra) / Rp 8.165.000 (Putri)</li>
+                        <li>Syahriah: Rp 600.000 / bulan</li>
+                      </ul>
+                      <p class="fw-semibold mb-1 text-dark">Awwal (Putra / Putri):</p>
+                      <ul class="mb-0 ps-3">
+                        <li>Biaya Pendaftaran: Rp 250.000</li>
+                        <li>Daftar Ulang: Rp 8.821.000 (Putra) / Rp 8.961.000 (Putri)</li>
+                        <li>Syahriah: Rp 600.000 / bulan</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-journal-text me-2"></i>Materi Ujian</h6>
+                    <div class="small text-muted">
+                      <p class="fw-semibold mb-1 text-dark">Santri:</p>
+                      <ul class="mb-2 ps-3">
+                        <li>Calistung, Qur'an, Kemandirian, Toilet Training, & Wawancara</li>
+                      </ul>
+                      <p class="fw-semibold mb-1 text-dark">Orang Tua:</p>
+                      <ul class="mb-0 ps-3">
+                        <li>Qur'an & Wawancara</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB SMPIT -->
+          <div class="tab-pane fade" id="smpit" role="tabpanel">
+            <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <div>
+                  <h3 class="fw-bold text-success mb-1">Unit Pendidikan SMPIT</h3>
+                  <p class="text-muted mb-0">Sekolah Menengah Pertama Islam Terpadu berbasis Pesantren Tahfizh.</p>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <span class="fw-bold me-2">Program Tersedia:</span>
+                <span class="badge bg-success-subtle text-success me-1">SMPIT Putra</span>
+                <span class="badge bg-success-subtle text-success me-1">SMPIT Putri</span>
+              </div>
+
+              <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-calendar-check me-2"></i>Waktu Pelaksanaan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pendaftaran Online: 1 - 30 November 2026</li>
+                      <li>Pelaksanaan Tes: 6 Desember 2026</li>
+                      <li>Pengumuman Hasil: 18 Desember 2026</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-card-checklist me-2"></i>Syarat Pendaftaran</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pas Foto Terbaru.</li>
+                      <li>Scan Kartu NISN.</li>
+                      <li>Scan Surat Keterangan Siswa Aktif dari Sekolah.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-cash-stack me-2"></i>Biaya Pendidikan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Biaya Pendaftaran: Rp 390.000</li>
+                      <li>Biaya Daftar Ulang: Rp 21.800.000</li>
+                      <li>Syahriah: Rp 1.800.000 / bulan</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-journal-text me-2"></i>Materi Ujian</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Matematika</li>
+                      <li>Bahasa Inggris</li>
+                      <li>IPAS</li>
+                      <li>Tes Membaca & Menghafal Qur'an</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB SMAIT -->
+          <div class="tab-pane fade" id="smait" role="tabpanel">
+            <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <div>
+                  <h3 class="fw-bold text-success mb-1">Unit Pendidikan SMAIT</h3>
+                  <p class="text-muted mb-0">Sekolah Menengah Atas Islam Terpadu berfokus pada integrasi sains dan Al-Qur'an.</p>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <span class="fw-bold me-2">Program Tersedia:</span>
+                <span class="badge bg-success-subtle text-success me-1">SMAIT Putra</span>
+                <span class="badge bg-success-subtle text-success me-1">SMAIT Putri</span>
+              </div>
+
+              <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-calendar-check me-2"></i>Waktu Pelaksanaan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pendaftaran Online: 1 - 31 Desember 2026</li>
+                      <li>Pelaksanaan Tes: 10 Januari 2027</li>
+                      <li>Pengumuman Hasil: 22 Januari 2027</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-card-checklist me-2"></i>Syarat Pendaftaran</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pas Foto Terbaru.</li>
+                      <li>Scan Kartu NISN.</li>
+                      <li>Scan Surat Keterangan Siswa Aktif dari Sekolah.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-cash-stack me-2"></i>Biaya Pendidikan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Biaya Pendaftaran: Rp 390.000</li>
+                      <li>Biaya Daftar Ulang: Rp 22.800.000</li>
+                      <li>Syahriah: Rp 1.900.000 / bulan</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-journal-text me-2"></i>Materi Ujian</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Matematika</li>
+                      <li>Bahasa Inggris</li>
+                      <li>Bahasa Arab</li>
+                      <li>IPA & IPS</li>
+                      <li>Tes Membaca & Menghafal Qur'an</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB KMI -->
+          <div class="tab-pane fade" id="kmi" role="tabpanel">
+            <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <div>
+                  <h3 class="fw-bold text-success mb-1">Unit Pendidikan KMI</h3>
+                  <p class="text-muted mb-0">Kulliyyatul Mu'allimin Al-Islamiyyah (Program Khusus Kaderisasi Du'at).</p>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <span class="fw-bold me-2">Program Tersedia:</span>
+                <span class="badge bg-success-subtle text-success me-1">KMI Putra</span>
+              </div>
+
+              <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-calendar-check me-2"></i>Waktu Pelaksanaan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pendaftaran Online: 15 November - 20 Desember 2026</li>
+                      <li>Pelaksanaan Tes: 27 Desember 2026</li>
+                      <li>Pengumuman Hasil: 8 Januari 2027</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-card-checklist me-2"></i>Syarat Pendaftaran</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pas Foto Terbaru.</li>
+                      <li>Scan Kartu NISN.</li>
+                      <li>Scan Surat Keterangan Siswa Aktif dari Sekolah.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-cash-stack me-2"></i>Biaya Pendidikan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Biaya Pendaftaran: Rp 350.000</li>
+                      <li>Biaya Daftar Ulang: Rp 19.800.000</li>
+                      <li>Syahriah: Rp 1.600.000 / bulan</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-journal-text me-2"></i>Materi Ujian</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Bahasa Arab</li>
+                      <li>Fiqih</li>
+                      <li>Matematika</li>
+                      <li>Tes Membaca & Menghafal Qur'an</li>
+                      <li>Wawancara Santri dan Wali Santri</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB MA'HAD 'ALY -->
+          <div class="tab-pane fade" id="mahad" role="tabpanel">
+            <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <div>
+                  <h3 class="fw-bold text-success mb-1">Unit Pendidikan Ma'had 'Aly</h3>
+                  <p class="text-muted mb-0">Perguruan Tinggi Keagamaan Islam Takhashshus Lughah Arabiyah & Dirasat Islamiyah.</p>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <span class="fw-bold me-2">Program Tersedia:</span>
+                <span class="badge bg-success-subtle text-success me-1">Ma'had 'Aly Putra</span>
+                <span class="badge bg-success-subtle text-success me-1">Ma'had 'Aly Putri</span>
+              </div>
+
+              <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-calendar-check me-2"></i>Waktu Pelaksanaan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pendaftaran Online: 1 Januari - 15 Februari 2027</li>
+                      <li>Pelaksanaan Tes: 22 Februari 2027</li>
+                      <li>Pengumuman Hasil: 5 Maret 2027</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-card-checklist me-2"></i>Syarat Pendaftaran</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Muslim/Muslimah usia 17-25 tahun.</li>
+                      <li>Lulusan SMA/MA/sederajat atau siswa tahun akhir kelas 12.</li>
+                      <li>Mempunyai ijazah formal diakui negara atau paket C.</li>
+                      <li>Menguasai bahasa Arab dasar.</li>
+                      <li>Mempunyai hafalan Al-Qur'an minimal 2 juz.</li>
+                      <li>Siap tidak menikah selama masa pendidikan.</li>
+                      <li>Siap tinggal di asrama dan berkomitmen menyelesaikan program pendidikan.</li>
+                      <li>Pas foto terbaru.</li>
+                      <li>Scan KTP/KK/Akta Lahir (bagi yang belum mempunyai KTP).</li>
+                      <li>Scan Ijazah/Paket C/Surat Keterangan Lulus/Transkrip Nilai kelas 12 (bagi yang ijazah belum keluar).</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-cash-stack me-2"></i>Biaya Pendidikan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Biaya Pendaftaran: Rp 250.000</li>
+                      <li>Biaya Daftar Ulang: Rp 2.500.000</li>
+                      <li>Syahriah: Rp 750.000 / bulan</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-journal-text me-2"></i>Materi Ujian</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Islamic Studies</li>
+                      <li>Bahasa Arab</li>
+                      <li>Tilawah & Hafalan Qur'an</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION KEUNGGULAN (REVISED FULL) -->
+    <section id="keunggulan" class="py-5">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="text-success fw-bold text-uppercase tracking-wider">Keunggulan</span>
+          <h2 class="fw-bold display-6 mt-1">Mengapa Memilih Ibnu Abbas?</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px">Komitmen kami dalam menghadirkan pendidikan Islam berkualitas, seimbang antara Al-Qur'an, Adab, dan Prestasi Akademik.</p>
+        </div>
+
+        <!-- 1 Accordion Utama Menggunakan Class Grid CSS -->
+        <div class="accordion accordion-grid" id="accordionKeunggulan">
+          <!-- Item 1 -->
+          <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                <div class="icon-box bg-success-subtle text-success flex-shrink-0" style="width: 45px; height: 45px; border-radius: 0.75rem">
+                  <i class="bi bi-book fs-4"></i>
+                </div>
+                <span class="fw-bold text-dark fs-6">Sanad & Kurikulum Qur'an</span>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionKeunggulan">
+              <div class="accordion-body pt-0 text-muted small">Bimbingan hafalan Al-Qur'an yang tersistem dengan pengajar mutqin dan ber-sanad sampai Rasulullah SAW.</div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <div class="icon-box bg-success-subtle text-success flex-shrink-0" style="width: 45px; height: 45px; border-radius: 0.75rem">
+                  <i class="bi bi-trophy fs-4"></i>
+                </div>
+                <span class="fw-bold text-dark fs-6">Prestasi Sains & Bahasa</span>
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionKeunggulan">
+              <div class="accordion-body pt-0 text-muted small">Sering menjuarai Kompetisi Sains Nasional (KSN) serta penguasaan aktif Bahasa Arab dan Bahasa Inggris.</div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <div class="icon-box bg-success-subtle text-success flex-shrink-0" style="width: 45px; height: 45px; border-radius: 0.75rem">
+                  <i class="bi bi-heart-pulse fs-4"></i>
+                </div>
+                <span class="fw-bold text-dark fs-6">Pembentukan Karakter Adab</span>
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionKeunggulan">
+              <div class="accordion-body pt-0 text-muted small">Integrasi pengasuhan asrama yang menekankan adab, kemandirian, kepemimpinan, dan akhlak karimah.</div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                <div class="icon-box bg-success-subtle text-success flex-shrink-0" style="width: 45px; height: 45px; border-radius: 0.75rem">
+                  <i class="bi bi-person-video3 fs-4"></i>
+                </div>
+                <span class="fw-bold text-dark fs-6">Asatidzah Kompeten</span>
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionKeunggulan">
+              <div class="accordion-body pt-0 text-muted small">Dikelola oleh tenaga pendidik profesional lulusan perguruan tinggi terkemuka dalam dan luar negeri.</div>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                <div class="icon-box bg-success-subtle text-success flex-shrink-0" style="width: 45px; height: 45px; border-radius: 0.75rem">
+                  <i class="bi bi-shield-check fs-4"></i>
+                </div>
+                <span class="fw-bold text-dark fs-6">Lingkungan Nyaman & Aman</span>
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionKeunggulan">
+              <div class="accordion-body pt-0 text-muted small">Fasilitas Kampus yang representatif, asrama bersih, serta sistem keamanan terpadu 24 jam.</div>
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header" id="headingSix">
+              <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                <div class="icon-box bg-success-subtle text-success flex-shrink-0" style="width: 45px; height: 45px; border-radius: 0.75rem">
+                  <i class="bi bi-globe-americas fs-4"></i>
+                </div>
+                <span class="fw-bold text-dark fs-6">Jaringan Alumni Luas</span>
+              </button>
+            </h2>
+            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionKeunggulan">
+              <div class="accordion-body pt-0 text-muted small">Koneksi erat dengan berbagai Perguruan Tinggi Negeri terkemuka dan Universitas Internasional di Timur Tengah.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="alumni" class="py-5 bg-white border-top border-bottom">
+      <div class="container py-4">
+        <div class="text-center mb-5">
+          <span class="text-success fw-bold text-uppercase tracking-wider">Jejak Alumni</span>
+          <h2 class="fw-bold display-6 mt-1">Sebaran Alumni PPTQ Ibnu Abbas</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px">Lulusan Ibnu Abbas Klaten tersebar dan melanjutkan studi di berbagai Perguruan Tinggi Ternama.</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="p-4 rounded-4 bg-light h-100 border">
+              <h4 class="fw-bold text-success mb-3"><i class="bi bi-building me-2"></i>Perguruan Tinggi Dalam Negeri</h4>
+              <p class="text-muted small">Diterima di Kampus PTN Favorit melalui jalur SNBP, SNBT, maupun Prestasi Tahfizh:</p>
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Indonesia (UI)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Gadjah Mada (UGM)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Institut Teknologi Bandung (ITB)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Diponegoro (UNDIP)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Sebelas Maret (UNS)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> UIN Sunan Kalijaga / Syarif Hidayatullah</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> LIPIA Jakarta</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-4 rounded-4 bg-light h-100 border">
+              <h4 class="fw-bold text-success mb-3"><i class="bi bi-airplane me-2"></i>Perguruan Tinggi Luar Negeri</h4>
+              <p class="text-muted small">Mendapat Beasiswa dan melanjutkan studi ke Universitas Internasional di Mancanegara:</p>
+              <div class="d-flex flex-wrap gap-2 mt-3">
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Al-Azhar (Mesir)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Islam Madinah (KSA)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universiti Malaya (Malaysia)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Yordania (Yordania)</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> International Islamic Univ. Sudan</span>
+                <span class="badge bg-white text-dark border px-3 py-2 rounded-pill"><i class="bi bi-check-circle-fill text-success me-1"></i> Universitas Yaman / Hadramaut</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimoni" class="py-5">
+      <div class="container py-4">
+        <!-- REKOMENDASI TOKOH -->
+        <div class="mb-5">
+          <div class="text-center mb-4">
+            <span class="text-success fw-bold text-uppercase tracking-wider">Apresiasi Tokoh</span>
+            <h2 class="fw-bold display-6 mt-1">Rekomendasi Tokoh</h2>
+          </div>
+
+          <!-- Container Scroll Horizontal -->
+          <div class="row flex-nowrap overflow-x-auto pb-3 horizontal-scroll-snap g-3 g-md-4">
+            <div class="col-12 col-md-6 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
+                <p class="text-muted italic mb-3">"PPTQ Ibnu Abbas Klaten telah membuktikan komitmen tinggi dalam mencetak huffazh Al-Qur'an yang juga unggul secara intelektual dan berakhlak mulia."</p>
+                <div class="d-flex align-items-center">
+                  <div class="bg-success text-white rounded-circle me-3 fw-bold d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0">TK</div>
+                  <div>
+                    <h6 class="fw-bold mb-0">Tokoh Tokoh / Ulama Nasional</h6>
+                    <small class="text-muted">Dewan Pertimbangan Pendidikan</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
+                <p class="text-muted italic mb-3">"Keseimbangan antara adab, integrasi sains, dan Al-Qur'an di pesantren ini menjadi role model lembaga pendidikan Islam modern berbasis tradisi."</p>
+                <div class="d-flex align-items-center">
+                  <div class="bg-success text-white rounded-circle me-3 fw-bold d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0">AP</div>
+                  <div>
+                    <h6 class="fw-bold mb-0">Akademisi & Tokoh Pendidikan</h6>
+                    <small class="text-muted">Guru Besar Perguruan Tinggi</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
+                <p class="text-muted italic mb-3">"Keseimbangan antara adab, integrasi sains, dan Al-Qur'an di pesantren ini menjadi role model lembaga pendidikan Islam modern berbasis tradisi."</p>
+                <div class="d-flex align-items-center">
+                  <div class="bg-success text-white rounded-circle me-3 fw-bold d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; flex-shrink: 0">AP</div>
+                  <div>
+                    <h6 class="fw-bold mb-0">Akademisi & Tokoh Pendidikan</h6>
+                    <small class="text-muted">Guru Besar Perguruan Tinggi</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KISAH SUKSES  -->
+        <div class="mb-5">
+          <div class="text-center mb-4">
+            <span class="text-success fw-bold text-uppercase tracking-wider">Kisah Sukses</span>
+            <h2 class="fw-bold display-6 mt-1">Success Story Alumni</h2>
+          </div>
+
+          <!-- PERUBAHAN 1: Tambahkan class horizontal scroll di bawah ini -->
+          <div class="row flex-nowrap overflow-x-auto pb-3 horizontal-scroll-snap g-3 g-md-4">
+            <!-- Alumni 1 (PERUBAHAN 2: Tambahkan col-12 & flex-shrink-0) -->
+            <div class="col-12 col-md-6 col-lg-4 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm testimonial-card p-4 h-100 bg-white text-center">
+                <img src="alumni-zaki.jpg" alt="Ahmad Zaki" class="w-100 rounded-3 object-fit-cover mb-3 border border-2 border-success-subtle shadow-sm" style="aspect-ratio: 3/4" />
+                <div>
+                  <span class="badge bg-success-subtle text-success mb-2">Alumni SMAIT</span>
+                  <h5 class="fw-bold mb-1">Ahmad Zaki, S.T.</h5>
+                  <small class="text-muted mb-3 d-block fw-semibold">Lulusan Teknik Elektrik UGM / Hafizh 30 Juz</small>
+                </div>
+                <p class="small text-muted mb-0 text-start">"Pendidikan tahfizh di Ibnu Abbas melatih kedisiplinan luar biasa. Nilai-nilai Al-Qur'an menjadi fondasi sukses saya selama masa kuliah sains hingga dunia kerja."</p>
+              </div>
+            </div>
+
+            <!-- Alumni 2 -->
+            <div class="col-12 col-md-6 col-lg-4 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm testimonial-card p-4 h-100 bg-white text-center">
+                <img src="alumni-hilman.jpg" alt="Ustadz Hilman" class="w-100 rounded-3 object-fit-cover mb-3 border border-2 border-success-subtle shadow-sm" style="aspect-ratio: 3/4" />
+                <div>
+                  <span class="badge bg-success-subtle text-success mb-2">Alumni Ma'had 'Aly</span>
+                  <h5 class="fw-bold mb-1">Ustadz Hilman, Lc.</h5>
+                  <small class="text-muted mb-3 d-block fw-semibold">Lulusan Univ. Al-Azhar Kairo / Dai & Educator</small>
+                </div>
+                <p class="small text-muted mb-0 text-start">"Fondasi Bahasa Arab dan Dirasat Islamiyah di Ma'had 'Aly Ibnu Abbas memudahkan saya dalam menempuh studi dan berdakwah secara inklusif."</p>
+              </div>
+            </div>
+
+            <!-- Alumni 3 -->
+            <div class="col-12 col-md-6 col-lg-4 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm testimonial-card p-4 h-100 bg-white text-center">
+                <img src="alumni-fathur.jpg" alt="Fathur Rahman" class="w-100 rounded-3 object-fit-cover mb-3 border border-2 border-success-subtle shadow-sm" style="aspect-ratio: 3/4" />
+                <div>
+                  <span class="badge bg-success-subtle text-success mb-2">Alumni KMI</span>
+                  <h5 class="fw-bold mb-1">Fathur Rahman, S.Ked.</h5>
+                  <small class="text-muted mb-3 d-block fw-semibold">Mahasiswa Kedokteran / Juara KSN</small>
+                </div>
+                <p class="small text-muted mb-0 text-start">"Berada di lingkungan asrama diajarkan untuk seimbang antara mengejar prestasi kedokteran dan menjaga hafalan Al-Qur'an tetap mutqin."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-center mb-4">
+            <span class="text-success fw-bold text-uppercase tracking-wider">Kesan Orang Tua</span>
+            <h2 class="fw-bold display-6 mt-1">Testimoni Wali Santri</h2>
+          </div>
+
+          <!-- PERUBAHAN 1: Tambahkan flex-nowrap, overflow-x-auto, pb-3, horizontal-scroll-snap, dll -->
+          <div class="row flex-nowrap overflow-x-auto pb-3 horizontal-scroll-snap g-3 g-md-4">
+            <!-- PERUBAHAN 2: Tambahkan col-12 dan flex-shrink-0 pada item 1 -->
+            <div class="col-12 col-md-6 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-quote text-success fs-1 me-2"></i>
+                  <div>
+                    <h6 class="fw-bold mb-0">Bapak Hendro S.</h6>
+                  </div>
+                </div>
+                <p class="text-muted small mb-0">"Perubahan adab dan kemandirian anak kami sangat terasa semenjak belajar di Ibnu Abbas. Komunikasi dengan pihak pengasuh juga sangat terbuka dan transparan."</p>
+              </div>
+            </div>
+
+            <!-- PERUBAHAN 2: Tambahkan col-12 dan flex-shrink-0 pada item 2 -->
+            <div class="col-12 col-md-6 flex-shrink-0">
+              <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-quote text-success fs-1 me-2"></i>
+                  <div>
+                    <h6 class="fw-bold mb-0">Ibu Nur Hidayah</h6>
+                  </div>
+                </div>
+                <p class="text-muted small mb-0">"Alhamdulillah, tidak hanya hafal Al-Qur'an 30 juz, putri kami juga mendapat pendampingan belajar yang optimal hingga berhasil menembus PTN impian."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Kolom 1: Profil / About -->
+          <div class="col-lg-4">
+            <a class="navbar-brand d-flex align-items-center fw-bold text-white fs-4 mb-3" href="#">
+              <img src="pptq.png" alt="Logo Ibnu Abbas" height="36" class="me-2" />
+              <span>PPTQ Ibnu Abbas Klaten</span>
+            </a>
+            <p class="small text-white-50 pe-lg-3">Portal Resmi Penerimaan Santri & Mahasantri Baru (PSMB) PPTQ Ibnu Abbas Klaten. Mewujudkan pendidikan terpadu Al-Qur'an, Sains, dan Adab.</p>
+          </div>
+
+          <!-- Kolom 2: Lokasi Kampus -->
+          <div class="col-md-6 col-lg-5">
+            <h6 class="text-white fw-bold mb-3">Lokasi Kampus</h6>
+            <ul class="list-unstyled small text-white-50 mb-0">
+              <li class="mb-3 d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 1:</strong>
+                  <span>Jl. Klaten-Solo km 04 belangwetan, Belang Wetan, Klaten Utara, Cantelan, Belang Wetan, Kec. Klaten Utara, Kabupaten Klaten, Jawa Tengah 57438</span>
+                </div>
+              </li>
+              <li class="mb-3 d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 2:</strong>
+                  <span>Dusun 1, Troso, Karanganom, Klaten Regency, Central Java 57475</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 3:</strong>
+                  <span>9J72+828, Gg. Anggrek, Manton, Jatinom, Kec. Jatinom, Kabupaten Klaten, Jawa Tengah 57481</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kolom 3: Beberapa Nomor WA Admin -->
+          <div class="col-md-6 col-lg-3">
+            <h6 class="text-white fw-bold mb-3">Panitia PSMB & Kontak</h6>
+            <ul class="list-unstyled small text-white-50 mb-0">
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putra:</div>
+                <a href="https://wa.me/6281234567890" target="_blank" class="text-decoration-none text-success-subtle"> +62 812-3456-7890 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putri:</div>
+                <a href="https://wa.me/6281398765432" target="_blank" class="text-decoration-none text-success-subtle"> +62 813-9876-5432 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">Kuttab:</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">KMI:</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">Ma'had 'Aly':</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4 border-secondary opacity-25" />
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small text-white-50">
+          <p class="mb-0">© 2026 PPTQ Ibnu Abbas Klaten. All rights reserved.</p>
+          <p class="mb-0 mt-2 mt-sm-0">Portal PSMB Terpadu</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Ambil SEMUA elemen yang memiliki class horizontal-scroll-snap
+    const scrollContainers = document.querySelectorAll(".horizontal-scroll-snap");
+
+    scrollContainers.forEach((scrollContainer) => {
+      // 1. Duplikasi seluruh card agar carousel tidak pernah kehabisan elemen
+      const cards = Array.from(scrollContainer.children);
+      cards.forEach((card) => {
+        const cloneNode = card.cloneNode(true);
+        scrollContainer.appendChild(cloneNode);
+      });
+
+      let autoScrollInterval;
+      const intervalTime = 3000; // Jeda 3 detik per geser
+
+      const startAutoScroll = () => {
+        autoScrollInterval = setInterval(() => {
+          const cardWidth = scrollContainer.querySelector('[class*="col-"]').offsetWidth;
+          const originalWidth = scrollContainer.scrollWidth / 2;
+
+          // Jika scroll mencapai batas elemen duplikat, kembalikan ke awal secara instan (tanpa smooth)
+          if (scrollContainer.scrollLeft >= originalWidth - 5) {
+            scrollContainer.style.scrollBehavior = "auto";
+            scrollContainer.scrollLeft = 0;
+          }
+
+          // Jalankan scroll smooth ke kanan sebesar 1 card
+          scrollContainer.style.scrollBehavior = "smooth";
+          scrollContainer.scrollBy({ left: cardWidth });
+        }, intervalTime);
+      };
+
+      const stopAutoScroll = () => clearInterval(autoScrollInterval);
+
+      // Jalankan auto-scroll
+      startAutoScroll();
+
+      // Pause saat kursor diatasnya / disentuh
+      scrollContainer.addEventListener("mouseenter", stopAutoScroll);
+      scrollContainer.addEventListener("mouseleave", startAutoScroll);
+      scrollContainer.addEventListener("touchstart", stopAutoScroll, { passive: true });
+      scrollContainer.addEventListener("touchend", startAutoScroll, { passive: true });
+    });
+  });
+</script>

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PSMB - PPTQ Ibnu Abbas Klaten</title>
+
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <style>
+      :root {
+        --bs-primary-green: #198754;
+        --bs-light-green: #eaf5eb;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
+      body {
+        background-color: #f4f6f9;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+
+      /* Hero Section Background & Overlay */
+      .hero-section {
+        position: relative;
+        background:
+          linear-gradient(rgba(15, 56, 35, 0.8), rgba(10, 40, 25, 0.95)),
+          url("hero-bg.jpeg") center/cover no-repeat;
+        color: white;
+        padding: 70px 0 90px 0;
+      }
+
+      .hero-section h1,
+      .hero-section p {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Announcement Card Hover & Style */
+      .announcement-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .announcement-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+      }
+
+      /* Footer Styling */
+      footer {
+        background-color: #0f3823;
+        color: #a3c9b8;
+      }
+      footer a {
+        color: #d1e7dd;
+      }
+      footer a:hover {
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center fw-bold text-success" href="index.html">
+          <span>PSMB | PPTQ Ibnu Abbas</span>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto align-items-lg-center my-2 my-lg-0">
+            <li class="nav-item me-lg-3">
+              <a class="nav-link fw-semibold text-center" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item me-lg-3">
+              <a class="nav-link fw-semibold text-center" href="brosur.html">Brosur</a>
+            </li>
+            <li class="nav-item me-lg-3">
+              <a class="nav-link active fw-semibold text-center" href="pengumuman.html">Pengumuman</a>
+            </li>
+          </ul>
+
+          <!-- Tombol Masuk & Daftar Sekarang -->
+          <div class="d-flex justify-content-center justify-content-lg-end gap-2 mt-2 mt-lg-0">
+            <a class="btn btn-outline-success rounded-pill px-4 fw-bold" href="login.html"> <i class="bi bi-box-arrow-in-right me-1"></i> Masuk </a>
+            <a class="btn btn-success rounded-pill px-4 fw-bold" href="index.html#unit-pendidikan"> <i class="bi bi-pencil-square me-1"></i> Daftar Sekarang </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="hero-section text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <span class="badge bg-white text-success px-4 py-2 rounded-pill fw-bold mb-3 shadow-sm border border-success border-opacity-10 fs-6"> <i class="bi bi-megaphone-fill me-2"></i>Pusat Informasi & Pengumuman </span>
+            <h1 class="display-5 fw-bold mb-3 text-white">Pengumuman Resmi PSMB</h1>
+            <p class="lead text-white opacity-75 mb-0">Dapatkan informasi terbaru seputar jadwal tes, hasil seleksi, dan kebijakan penting Penerimaan Santri Baru PPTQ Ibnu Abbas Klaten.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT SECTION: DAFTAR PENGUMUMAN -->
+    <section class="py-5">
+      <div class="container py-2">
+        <!-- Filter / Search Bar (Opsional) -->
+        <div class="row mb-4 align-items-center">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <h4 class="fw-bold text-dark mb-1">Daftar Pengumuman Terbaru</h4>
+            <p class="text-muted small mb-0">Menampilkan seluruh informasi resmi PSMB PPTQ Ibnu Abbas Klaten.</p>
+          </div>
+          <div class="col-md-6">
+            <div class="input-group">
+              <input type="text" class="form-control rounded-start-pill px-3" placeholder="Cari pengumuman..." id="searchBox" />
+              <button class="btn btn-success rounded-end-pill px-4" type="button"><i class="bi bi-search"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- List Kartu Pengumuman (Dengan Gambar & Keterangan) -->
+        <div class="row g-4">
+          <!-- Pengumuman 1 (Disematkan / Pinned) -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border border-success border-2 rounded-4 shadow announcement-card bg-white overflow-hidden d-flex flex-column position-relative">
+              <!-- Badge Disematkan -->
+              <div class="position-absolute top-0 start-0 m-3 z-3">
+                <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill shadow-sm"> <i class="bi bi-pin-fill me-1"></i> Disematkan </span>
+              </div>
+
+              <img src="img-pengumuman-1.jpg" class="card-img-top" alt="Ujian Seleksi Tahap 1" style="height: 200px; object-fit: cover" />
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="d-flex justify-content-end align-items-center mb-3">
+                  <small class="text-muted"><i class="bi bi-calendar-event me-1"></i> 15 Okt 2026</small>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Jadwal Resmi Ujian Seleksi Tahap 1 Gelombang 1</h5>
+                <p class="text-muted small mb-4 flex-grow-1">Informasi penting mengenai ruang ujian, tata tertib, serta perlengkapan yang wajib dibawa saat mengikuti tes tertulis dan wawancara.</p>
+                <!-- Tombol Trigger Modal 1 (Solid Success) -->
+                <button type="button" class="btn btn-success rounded-pill fw-semibold w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#modalPengumuman1">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pengumuman 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 rounded-4 shadow-sm announcement-card bg-white overflow-hidden d-flex flex-column">
+              <img src="img-pengumuman-2.jpg" class="card-img-top" alt="Hasil Seleksi Administrasi" style="height: 200px; object-fit: cover" />
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="d-flex justify-content-end align-items-center mb-3">
+                  <small class="text-muted"><i class="bi bi-calendar-event me-1"></i> 10 Okt 2026</small>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Hasil Seleksi Administrasi Berkas Pendaftaran</h5>
+                <p class="text-muted small mb-4 flex-grow-1">Pengumuman peserta yang dinyatakan lolos verifikasi berkas administrasi dan berhak melanjutkan ke tahap Ujian Bahasa Arab & Tahfizh.</p>
+                <!-- Tombol Trigger Modal 2 -->
+                <button type="button" class="btn btn-outline-success rounded-pill fw-semibold w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#modalPengumuman2">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pengumuman 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 rounded-4 shadow-sm announcement-card bg-white overflow-hidden d-flex flex-column">
+              <img src="img-pengumuman-3.jpg" class="card-img-top" alt="Kuttab Tahmidi Putra" style="height: 200px; object-fit: cover" />
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="d-flex justify-content-end align-items-center mb-3">
+                  <small class="text-muted"><i class="bi bi-calendar-event me-1"></i> 01 Okt 2026</small>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Pembukaan Kuota Tambahan Kuttab Tahmidi Putra</h5>
+                <p class="text-muted small mb-4 flex-grow-1">Menindaklanjuti animo pendaftar yang tinggi, panitia membuka tambahan kuota terbatas khusus untuk unit Kuttab Tahmidi Putra.</p>
+                <!-- Tombol Trigger Modal 3 -->
+                <button type="button" class="btn btn-outline-success rounded-pill fw-semibold w-100 mt-auto" data-bs-toggle="modal" data-bs-target="#modalPengumuman3">Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination (Opsional) -->
+        <nav class="mt-5 d-flex justify-content-center">
+          <ul class="pagination">
+            <li class="page-item disabled"><a class="page-link rounded-start-pill" href="#">Sebelumnya</a></li>
+            <li class="page-item active"><a class="page-link bg-success border-success" href="#">1</a></li>
+            <li class="page-item"><a class="page-link text-success" href="#">2</a></li>
+            <li class="page-item"><a class="page-link text-success rounded-end-pill" href="#">Selanjutnya</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Kolom 1: Profil / About -->
+          <div class="col-lg-4">
+            <a class="navbar-brand d-flex align-items-center fw-bold text-white fs-4 mb-3" href="#">
+              <img src="pptq.png" alt="Logo Ibnu Abbas" height="36" class="me-2" />
+              <span>PPTQ Ibnu Abbas Klaten</span>
+            </a>
+            <p class="small text-white-50 pe-lg-3">Portal Resmi Penerimaan Santri & Mahasantri Baru (PSMB) PPTQ Ibnu Abbas Klaten. Mewujudkan pendidikan terpadu Al-Qur'an, Sains, dan Adab.</p>
+          </div>
+
+          <!-- Kolom 2: Lokasi Kampus -->
+          <div class="col-md-6 col-lg-5">
+            <h6 class="text-white fw-bold mb-3">Lokasi Kampus</h6>
+            <ul class="list-unstyled small text-white-50 mb-0">
+              <li class="mb-3 d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 1:</strong>
+                  <span>Jl. Klaten-Solo km 04 belangwetan, Belang Wetan, Klaten Utara, Cantelan, Belang Wetan, Kec. Klaten Utara, Kabupaten Klaten, Jawa Tengah 57438</span>
+                </div>
+              </li>
+              <li class="mb-3 d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 2:</strong>
+                  <span>Dusun 1, Troso, Karanganom, Klaten Regency, Central Java 57475</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 3:</strong>
+                  <span>9J72+828, Gg. Anggrek, Manton, Jatinom, Kec. Jatinom, Kabupaten Klaten, Jawa Tengah 57481</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kolom 3: Beberapa Nomor WA Admin -->
+          <div class="col-md-6 col-lg-3">
+            <h6 class="text-white fw-bold mb-3">Panitia PSMB & Kontak</h6>
+            <ul class="list-unstyled small text-white-50 mb-0">
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putra:</div>
+                <a href="https://wa.me/6281234567890" target="_blank" class="text-decoration-none text-success-subtle"> +62 812-3456-7890 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putri:</div>
+                <a href="https://wa.me/6281398765432" target="_blank" class="text-decoration-none text-success-subtle"> +62 813-9876-5432 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">Kuttab:</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">KMI:</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">Ma'had 'Aly':</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4 border-secondary opacity-25" />
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small text-white-50">
+          <p class="mb-0">© 2026 PPTQ Ibnu Abbas Klaten. All rights reserved.</p>
+          <p class="mb-0 mt-2 mt-sm-0">Portal PSMB Terpadu</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== MODAL POPUP SECTION ==================== -->
+
+    <!-- Modal 1: Ujian Seleksi Tahap 1 -->
+    <div class="modal fade" id="modalPengumuman1" tabindex="-1" aria-labelledby="modalPengumuman1Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-bottom-0 pb-0 justify-content-end">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4 pt-0">
+            <h4 class="modal-title fw-bold text-dark mb-2" id="modalPengumuman1Label">Jadwal Resmi Ujian Seleksi Tahap 1 Gelombang 1</h4>
+            <p class="text-muted small mb-3"><i class="bi bi-calendar-event me-1"></i> 15 Oktober 2026</p>
+            <img src="img-pengumuman-1.jpg" class="img-fluid rounded-3 mb-4 w-100" alt="Ujian Seleksi Tahap 1" style="max-height: 350px; object-fit: cover" />
+            <div class="lh-lg text-secondary">
+              <p>Panitia Penerimaan Santri Baru (PSMB) PPTQ Ibnu Abbas Klaten menyampaikan informasi lengkap mengenai pelaksanaan Ujian Seleksi Tahap 1 Gelombang 1 untuk unit SMPIT dan SMAIT.</p>
+              <h6 class="fw-bold text-dark mt-4 mb-2">Ketentuan & Tata Tertib Ujian:</h6>
+              <ul class="ps-3 mb-3">
+                <li>Peserta wajib hadir di lokasi ujian 30 menit sebelum sesi tes dimulai untuk melakukan registrasi ulang.</li>
+                <li>Membawa Kartu Peserta Ujian fisik yang telah dicetak dari akun pendaftaran masing-masing.</li>
+                <li>Membawa perlengkapan tulis sendiri (pensil 2B, penghapus, penggaris, dan pulpen).</li>
+                <li>Berpakaian rapi, sopan, menutup aurat, serta mengenakan sepatu.</li>
+              </ul>
+              <p>Informasi detail mengenai ruang ujian masing-masing peserta dapat dicek melalui dashboard akun pendaftar.</p>
+            </div>
+          </div>
+          <div class="modal-footer border-top-0 pt-0">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Hasil Seleksi Administrasi -->
+    <div class="modal fade" id="modalPengumuman2" tabindex="-1" aria-labelledby="modalPengumuman2Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-bottom-0 pb-0 justify-content-end">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4 pt-0">
+            <h4 class="modal-title fw-bold text-dark mb-2" id="modalPengumuman2Label">Hasil Seleksi Administrasi Berkas Pendaftaran</h4>
+            <p class="text-muted small mb-3"><i class="bi bi-calendar-event me-1"></i> 10 Oktober 2026</p>
+            <img src="img-pengumuman-2.jpg" class="img-fluid rounded-3 mb-4 w-100" alt="Hasil Seleksi Administrasi" style="max-height: 350px; object-fit: cover" />
+            <div class="lh-lg text-secondary">
+              <p>Berikut adalah pengumuman resmi hasil seleksi administrasi berkas pendaftaran calon mahasantri baru Ma'had 'Aly PPTQ Ibnu Abbas Klaten.</p>
+              <p>Bagi peserta yang namanya tercantum dalam daftar kelulusan administrasi, berhak untuk melanjutkan ke tahap ujian berikutnya yaitu Tes Bahasa Arab dan Ujian Tahfizh Al-Qur'an.</p>
+              <h6 class="fw-bold text-dark mt-4 mb-2">Langkah Selanjutnya:</h6>
+              <ul class="ps-3 mb-3">
+                <li>Unduh jadwal tes spesifik pada halaman akun login masing-masing.</li>
+                <li>Mempersiapkan diri dengan baik mengikuti materi tes lisan maupun tulisan.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer border-top-0 pt-0">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Pembukaan Kuota Tambahan Kuttab Tahmidi -->
+    <div class="modal fade" id="modalPengumuman3" tabindex="-1" aria-labelledby="modalPengumuman3Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-4 border-0 shadow">
+          <div class="modal-header border-bottom-0 pb-0 justify-content-end">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4 pt-0">
+            <h4 class="modal-title fw-bold text-dark mb-2" id="modalPengumuman3Label">Pembukaan Kuota Tambahan Kuttab Tahmidi Putra</h4>
+            <p class="text-muted small mb-3"><i class="bi bi-calendar-event me-1"></i> 01 Oktober 2026</p>
+            <img src="img-pengumuman-3.jpg" class="img-fluid rounded-3 mb-4 w-100" alt="Kuttab Tahmidi Putra" style="max-height: 350px; object-fit: cover" />
+            <div class="lh-lg text-secondary">
+              <p>Menindaklanjuti tingginya animo serta antusiasme masyarakat yang mendaftar, panitia PSMB PPTQ Ibnu Abbas Klaten memutuskan untuk membuka kuota tambahan secara terbatas khusus untuk unit Kuttab Tahmidi Putra.</p>
+              <h6 class="fw-bold text-dark mt-4 mb-2">Ketentuan Pendaftaran Kuota Tambahan:</h6>
+              <ul class="ps-3 mb-3">
+                <li>Pendaftaran dibuka secara online melalui portal resmi PSMB.</li>
+                <li>Kuota sangat terbatas dan akan ditutup otomatis apabila pagkuan terpenuhi.</li>
+                <li>Proses seleksi dan observasi akan diinformasikan langsung kepada pendaftar baru.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="modal-footer border-top-0 pt-0">
+            <button type="button" class="btn btn-secondary rounded-pill px-4" data-bs-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

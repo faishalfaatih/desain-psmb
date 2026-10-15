@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PSMB - PPTQ Ibnu Abbas Klaten</title>
+
+    <!-- Bootstrap 5 CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+    <style>
+      :root {
+        --bs-primary-green: #198754;
+        --bs-light-green: #eaf5eb;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+
+      body {
+        background-color: #f4f6f9;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+
+      /* Hero Section Background & Overlay */
+      .hero-section {
+        position: relative;
+        background:
+          linear-gradient(rgba(15, 56, 35, 0.8), rgba(10, 40, 25, 0.95)),
+          url("hero-bg.jpeg") center/cover no-repeat;
+        color: white;
+        padding: 70px 0 90px 0;
+      }
+
+      .hero-section h1,
+      .hero-section p {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Card Hover & Style */
+      .brochure-card {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+      .brochure-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12) !important;
+      }
+
+      /* Kover Thumbnail Halaman 1 (Gunakan aspect-ratio agar proporsional menyesuaikan layar) */
+      .brochure-thumbnail {
+        width: 100%;
+        aspect-ratio: 3 / 4; /* Rasio proporsional brosur/dokumen */
+        height: auto;
+        background-color: #eaf5eb;
+        position: relative;
+        overflow: hidden;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        cursor: pointer;
+      }
+
+      .brochure-thumbnail img.cover-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        transition: transform 0.4s ease;
+      }
+
+      .brochure-card:hover .brochure-thumbnail img.cover-img {
+        transform: scale(1.05);
+      }
+
+      /* Hover Overlay pada Kover Gambar */
+      .thumbnail-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 56, 35, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 3;
+      }
+
+      .brochure-card:hover .thumbnail-overlay {
+        opacity: 1;
+      }
+
+      /* Badge Indikator Jumlah Halaman pada Kover */
+      .page-stack-badge {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        backdrop-filter: blur(4px);
+        z-index: 2;
+      }
+
+      /* Footer Styling */
+      footer {
+        background-color: #0f3823;
+        color: #a3c9b8;
+      }
+      footer a {
+        color: #d1e7dd;
+      }
+      footer a:hover {
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center fw-bold text-success" href="index.html">
+          <span>PSMB | PPTQ Ibnu Abbas</span>
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto align-items-lg-center my-2 my-lg-0">
+            <li class="nav-item me-lg-3">
+              <a class="nav-link fw-semibold text-center" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item me-lg-3">
+              <a class="nav-link active fw-semibold text-center" href="brosur.html">Brosur</a>
+            </li>
+            <li class="nav-item me-lg-3">
+              <a class="nav-link fw-semibold text-center" href="pengumuman.html">Pengumuman</a>
+            </li>
+          </ul>
+
+          <!-- Tombol Masuk & Daftar Sekarang (Kanan) -->
+          <div class="d-flex justify-content-center justify-content-lg-end gap-2 mt-2 mt-lg-0">
+            <!-- Tombol Masuk -->
+            <a class="btn btn-outline-success rounded-pill px-4 fw-bold" href="login.html"> <i class="bi bi-box-arrow-in-right me-1"></i> Masuk </a>
+
+            <!-- Tombol Daftar Sekarang -->
+            <a class="btn btn-success rounded-pill px-4 fw-bold" href="#unit-pendidikan"> <i class="bi bi-pencil-square me-1"></i> Daftar Sekarang </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="hero-section text-center">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <span class="badge bg-white text-success px-4 py-2 rounded-pill fw-bold mb-3 shadow-sm border border-success border-opacity-10 fs-6"> <i class="bi bi-file-earmark-pdf-fill me-2"></i>Pusat Unduhan Brosur </span>
+            <h1 class="display-5 fw-bold mb-3 text-white">Brosur Resmi PSMB</h1>
+            <p class="lead text-white opacity-75 mb-0">Temukan dan unduh katalog brosur lengkap dari setiap unit pendidikan di PPTQ Ibnu Abbas Klaten untuk memperoleh rincian kurikulum, syarat pendaftaran, dan rincian biaya.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTENT SECTION -->
+    <section class="py-5">
+      <div class="container py-2">
+        <!-- Brochure Cards Grid -->
+        <div class="row g-4" id="brosurGrid">
+          <!-- BROSUR PPTQ -->
+          <div class="col-md-6 col-lg-4 brosur-item">
+            <div class="card h-100 border-0 rounded-4 shadow-sm brochure-card overflow-hidden bg-white">
+              <!-- Kover Gambar Halaman 1 -->
+              <div class="brochure-thumbnail btn-preview" data-title="Brosur PPTQ Ibnu Abbas" data-file="assets/brosur-pptq.pdf" data-page1="assets/pptq-1.webp" data-page2="assets/pptq-1.webp">
+                <img src="assets/pptq-1.webp" alt="Kover Brosur PPTQ" class="cover-img" loading="lazy" decoding="async" />
+                <span class="page-stack-badge"><i class="bi bi-layers-fill me-1"></i>2 Halaman</span>
+                <div class="thumbnail-overlay">
+                  <span class="btn btn-sm btn-light rounded-pill px-3 fw-semibold shadow"> <i class="bi bi-search me-1"></i> Perbesar Pratinjau </span>
+                </div>
+              </div>
+
+              <div class="card-body p-4 d-flex flex-column">
+                <h5 class="fw-bold text-dark mb-2">PPTQ Ibnu Abbas</h5>
+                <p class="text-muted small mb-3 flex-grow-1">Klik tombol di bawah ini untuk melihat atau mengunduh berkas brosur dalam format PDF.</p>
+                <div class="d-grid gap-2 d-sm-flex">
+                  <button class="btn btn-outline-success rounded-pill fw-semibold flex-fill btn-preview" data-title="Brosur PPTQ Ibnu Abbas" data-file="assets/brosur-pptq.pdf" data-page1="assets/pptq-1.webp" data-page2="assets/pptq-1.webp">
+                    <i class="bi bi-eye me-1"></i> Pratinjau
+                  </button>
+                  <a href="assets/brosur-pptq.pdf" download class="btn btn-success rounded-pill fw-semibold flex-fill"> <i class="bi bi-download me-1"></i> Unduh </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BROSUR KUTTAB -->
+          <div class="col-md-6 col-lg-4 brosur-item">
+            <div class="card h-100 border-0 rounded-4 shadow-sm brochure-card overflow-hidden bg-white">
+              <!-- Kover Gambar Halaman 1 -->
+              <div class="brochure-thumbnail btn-preview" data-title="Brosur Kuttab Ibnu Abbas" data-file="assets/brosur-kuttab.pdf" data-page1="assets/kuttab-1.webp" data-page2="assets/kuttab-2.webp">
+                <img src="assets/kuttab-1.webp" alt="Kover Brosur Kuttab" class="cover-img" loading="lazy" decoding="async" />
+                <span class="page-stack-badge"><i class="bi bi-layers-fill me-1"></i>2 Halaman</span>
+                <div class="thumbnail-overlay">
+                  <span class="btn btn-sm btn-light rounded-pill px-3 fw-semibold shadow"> <i class="bi bi-search me-1"></i> Perbesar Pratinjau </span>
+                </div>
+              </div>
+
+              <div class="card-body p-4 d-flex flex-column">
+                <h5 class="fw-bold text-dark mb-2">Kuttab Ibnu Abbas</h5>
+                <p class="text-muted small mb-3 flex-grow-1">Klik tombol di bawah ini untuk melihat atau mengunduh berkas brosur dalam format PDF.</p>
+                <div class="d-grid gap-2 d-sm-flex">
+                  <button
+                    class="btn btn-outline-success rounded-pill fw-semibold flex-fill btn-preview"
+                    data-title="Brosur Kuttab Ibnu Abbas"
+                    data-file="assets/brosur-kuttab.pdf"
+                    data-page1="assets/kuttab-1.webp"
+                    data-page2="assets/kuttab-2.webp"
+                  >
+                    <i class="bi bi-eye me-1"></i> Pratinjau
+                  </button>
+                  <a href="assets/brosur-kuttab.pdf" download class="btn btn-success rounded-pill fw-semibold flex-fill"> <i class="bi bi-download me-1"></i> Unduh </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BROSUR SMPIT -->
+          <div class="col-md-6 col-lg-4 brosur-item">
+            <div class="card h-100 border-0 rounded-4 shadow-sm brochure-card overflow-hidden bg-white">
+              <!-- Kover Gambar Halaman 1 -->
+              <div class="brochure-thumbnail btn-preview" data-title="Brosur SMPIT Ibnu Abbas" data-file="assets/brosur-smpit.pdf" data-page1="assets/smpit-1.webp" data-page2="assets/smpit-2.webp">
+                <img src="assets/smpit-1.webp" alt="Kover Brosur SMPIT" class="cover-img" loading="lazy" decoding="async" />
+                <span class="page-stack-badge"><i class="bi bi-layers-fill me-1"></i>2 Halaman</span>
+                <div class="thumbnail-overlay">
+                  <span class="btn btn-sm btn-light rounded-pill px-3 fw-semibold shadow"> <i class="bi bi-search me-1"></i> Perbesar Pratinjau </span>
+                </div>
+              </div>
+
+              <div class="card-body p-4 d-flex flex-column">
+                <h5 class="fw-bold text-dark mb-2">SMPIT Ibnu Abbas</h5>
+                <p class="text-muted small mb-3 flex-grow-1">Klik tombol di bawah ini untuk melihat atau mengunduh berkas brosur dalam format PDF.</p>
+                <div class="d-grid gap-2 d-sm-flex">
+                  <button
+                    class="btn btn-outline-success rounded-pill fw-semibold flex-fill btn-preview"
+                    data-title="Brosur SMPIT Ibnu Abbas"
+                    data-file="assets/brosur-smpit.pdf"
+                    data-page1="assets/smpit-1.webp"
+                    data-page2="assets/smpit-2.webp"
+                  >
+                    <i class="bi bi-eye me-1"></i> Pratinjau
+                  </button>
+                  <a href="assets/brosur-smpit.pdf" download class="btn btn-success rounded-pill fw-semibold flex-fill"> <i class="bi bi-download me-1"></i> Unduh </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BROSUR SMAIT -->
+          <div class="col-md-6 col-lg-4 brosur-item">
+            <div class="card h-100 border-0 rounded-4 shadow-sm brochure-card overflow-hidden bg-white">
+              <!-- Kover Gambar Halaman 1 -->
+              <div class="brochure-thumbnail btn-preview" data-title="Brosur SMAIT Ibnu Abbas" data-file="assets/brosur-smait.pdf" data-page1="assets/smait-1.webp" data-page2="assets/smait-2.webp">
+                <img src="assets/smait-1.webp" alt="Kover Brosur SMAIT" class="cover-img" loading="lazy" decoding="async" />
+                <span class="page-stack-badge"><i class="bi bi-layers-fill me-1"></i>2 Halaman</span>
+                <div class="thumbnail-overlay">
+                  <span class="btn btn-sm btn-light rounded-pill px-3 fw-semibold shadow"> <i class="bi bi-search me-1"></i> Perbesar Pratinjau </span>
+                </div>
+              </div>
+
+              <div class="card-body p-4 d-flex flex-column">
+                <h5 class="fw-bold text-dark mb-2">SMAIT Ibnu Abbas</h5>
+                <p class="text-muted small mb-3 flex-grow-1">Klik tombol di bawah ini untuk melihat atau mengunduh berkas brosur dalam format PDF.</p>
+                <div class="d-grid gap-2 d-sm-flex">
+                  <button
+                    class="btn btn-outline-success rounded-pill fw-semibold flex-fill btn-preview"
+                    data-title="Brosur SMAIT Ibnu Abbas"
+                    data-file="assets/brosur-smait.pdf"
+                    data-page1="assets/smait-1.webp"
+                    data-page2="assets/smait-2.webp"
+                  >
+                    <i class="bi bi-eye me-1"></i> Pratinjau
+                  </button>
+                  <a href="assets/brosur-smait.pdf" download class="btn btn-success rounded-pill fw-semibold flex-fill"> <i class="bi bi-download me-1"></i> Unduh </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BROSUR KMI -->
+          <div class="col-md-6 col-lg-4 brosur-item">
+            <div class="card h-100 border-0 rounded-4 shadow-sm brochure-card overflow-hidden bg-white">
+              <!-- Kover Gambar Halaman 1 -->
+              <div class="brochure-thumbnail btn-preview" data-title="Brosur KMI Ibnu Abbas" data-file="assets/brosur-kmi.pdf" data-page1="assets/kmi-1.webp" data-page2="assets/kmi-2.webp">
+                <img src="assets/kmi-1.webp" alt="Kover Brosur KMI" class="cover-img" loading="lazy" decoding="async" />
+                <span class="page-stack-badge"><i class="bi bi-layers-fill me-1"></i>2 Halaman</span>
+                <div class="thumbnail-overlay">
+                  <span class="btn btn-sm btn-light rounded-pill px-3 fw-semibold shadow"> <i class="bi bi-search me-1"></i> Perbesar Pratinjau </span>
+                </div>
+              </div>
+
+              <div class="card-body p-4 d-flex flex-column">
+                <h5 class="fw-bold text-dark mb-2">KMI Ibnu Abbas</h5>
+                <p class="text-muted small mb-3 flex-grow-1">Klik tombol di bawah ini untuk melihat atau mengunduh berkas brosur dalam format PDF.</p>
+                <div class="d-grid gap-2 d-sm-flex">
+                  <button class="btn btn-outline-success rounded-pill fw-semibold flex-fill btn-preview" data-title="Brosur KMI Ibnu Abbas" data-file="assets/brosur-kmi.pdf" data-page1="assets/kmi-1.webp" data-page2="assets/kmi-2.webp">
+                    <i class="bi bi-eye me-1"></i> Pratinjau
+                  </button>
+                  <a href="assets/brosur-kmi.pdf" download class="btn btn-success rounded-pill fw-semibold flex-fill"> <i class="bi bi-download me-1"></i> Unduh </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BROSUR MA'HAD 'ALY -->
+          <div class="col-md-6 col-lg-4 brosur-item">
+            <div class="card h-100 border-0 rounded-4 shadow-sm brochure-card overflow-hidden bg-white">
+              <!-- Kover Gambar Halaman 1 -->
+              <div class="brochure-thumbnail btn-preview" data-title="Brosur Ma'had 'Aly Ibnu Abbas 2026/2027" data-file="assets/brosur-mahad-aly.pdf" data-page1="assets/ma-1.webp" data-page2="assets/ma-2.webp">
+                <img src="assets/ma-1.webp" alt="Kover Brosur Ma'had 'Aly" class="cover-img" loading="lazy" decoding="async" />
+                <span class="page-stack-badge"><i class="bi bi-layers-fill me-1"></i>2 Halaman</span>
+                <div class="thumbnail-overlay">
+                  <span class="btn btn-sm btn-light rounded-pill px-3 fw-semibold shadow"> <i class="bi bi-search me-1"></i> Perbesar Pratinjau </span>
+                </div>
+              </div>
+
+              <div class="card-body p-4 d-flex flex-column">
+                <h5 class="fw-bold text-dark mb-2">Ma'had 'Aly Ibnu Abbas</h5>
+                <p class="text-muted small mb-3 flex-grow-1">Klik tombol di bawah ini untuk melihat atau mengunduh berkas brosur dalam format PDF.</p>
+                <div class="d-grid gap-2 d-sm-flex">
+                  <button
+                    class="btn btn-outline-success rounded-pill fw-semibold flex-fill btn-preview"
+                    data-title="Brosur Ma'had 'Aly Ibnu Abbas 2026/2027"
+                    data-file="assets/brosur-mahad-aly.pdf"
+                    data-page1="assets/ma-1.webp"
+                    data-page2="assets/ma-2.webp"
+                  >
+                    <i class="bi bi-eye me-1"></i> Pratinjau
+                  </button>
+                  <a href="assets/brosur-mahad-aly.pdf" download class="btn btn-success rounded-pill fw-semibold flex-fill"> <i class="bi bi-download me-1"></i> Unduh </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL PRATINJAU BROSUR (2 HALAMAN BERDAMPINGAN) -->
+    <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0">
+          <div class="modal-header border-bottom px-4 py-3">
+            <h5 class="modal-title fw-bold text-success" id="modalBrochureTitle">Pratinjau Brosur</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body p-4 bg-light overflow-auto" style="max-height: 80vh">
+            <div class="row g-3 justify-content-center">
+              <div class="col-md-6 text-center">
+                <span class="badge bg-secondary mb-2">Halaman 1 (Depan)</span>
+                <img id="imgPage1" src="" class="img-fluid rounded shadow-sm border w-100" alt="Halaman 1" />
+              </div>
+              <div class="col-md-6 text-center">
+                <span class="badge bg-secondary mb-2">Halaman 2 (Belakang)</span>
+                <img id="imgPage2" src="" class="img-fluid rounded shadow-sm border w-100" alt="Halaman 2" />
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer border-top px-4 py-3 justify-content-between">
+            <span class="text-muted small"><i class="bi bi-info-circle me-1"></i> Unduh berkas PDF untuk memperoleh cetakan resolusi tinggi.</span>
+            <div>
+              <button type="button" class="btn btn-light rounded-pill fw-semibold me-2" data-bs-dismiss="modal">Tutup</button>
+              <a href="#" id="modalDownloadBtn" download class="btn btn-success rounded-pill fw-semibold"> <i class="bi bi-download me-1"></i> Unduh PDF </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Kolom 1: Profil / About -->
+          <div class="col-lg-4">
+            <a class="navbar-brand d-flex align-items-center fw-bold text-white fs-4 mb-3" href="#">
+              <img src="pptq.png" alt="Logo Ibnu Abbas" height="36" class="me-2" />
+              <span>PPTQ Ibnu Abbas Klaten</span>
+            </a>
+            <p class="small text-white-50 pe-lg-3">Portal Resmi Penerimaan Santri & Mahasantri Baru (PSMB) PPTQ Ibnu Abbas Klaten. Mewujudkan pendidikan terpadu Al-Qur'an, Sains, dan Adab.</p>
+          </div>
+
+          <!-- Kolom 2: Lokasi Kampus -->
+          <div class="col-md-6 col-lg-5">
+            <h6 class="text-white fw-bold mb-3">Lokasi Kampus</h6>
+            <ul class="list-unstyled small text-white-50 mb-0">
+              <li class="mb-3 d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 1:</strong>
+                  <span>Jl. Klaten-Solo km 04 belangwetan, Belang Wetan, Klaten Utara, Cantelan, Belang Wetan, Kec. Klaten Utara, Kabupaten Klaten, Jawa Tengah 57438</span>
+                </div>
+              </li>
+              <li class="mb-3 d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 2:</strong>
+                  <span>Dusun 1, Troso, Karanganom, Klaten Regency, Central Java 57475</span>
+                </div>
+              </li>
+              <li class="d-flex align-items-start">
+                <i class="bi bi-geo-alt-fill text-success me-2 mt-1"></i>
+                <div>
+                  <strong class="text-white d-block mb-1">Kampus 3:</strong>
+                  <span>9J72+828, Gg. Anggrek, Manton, Jatinom, Kec. Jatinom, Kabupaten Klaten, Jawa Tengah 57481</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kolom 3: Beberapa Nomor WA Admin -->
+          <div class="col-md-6 col-lg-3">
+            <h6 class="text-white fw-bold mb-3">Panitia PSMB & Kontak</h6>
+            <ul class="list-unstyled small text-white-50 mb-0">
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putra:</div>
+                <a href="https://wa.me/6281234567890" target="_blank" class="text-decoration-none text-success-subtle"> +62 812-3456-7890 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putri:</div>
+                <a href="https://wa.me/6281398765432" target="_blank" class="text-decoration-none text-success-subtle"> +62 813-9876-5432 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">Kuttab:</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">KMI:</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">Ma'had 'Aly':</div>
+                <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="my-4 border-secondary opacity-25" />
+        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center small text-white-50">
+          <p class="mb-0">© 2026 PPTQ Ibnu Abbas Klaten. All rights reserved.</p>
+          <p class="mb-0 mt-2 mt-sm-0">Portal PSMB Terpadu</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS Bootstrap & Interaktivitas Preview Modal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const previewModal = new bootstrap.Modal(document.getElementById("previewModal"));
+        const modalTitle = document.getElementById("modalBrochureTitle");
+        const imgPage1 = document.getElementById("imgPage1");
+        const imgPage2 = document.getElementById("imgPage2");
+        const modalDownloadBtn = document.getElementById("modalDownloadBtn");
+
+        // Event listener untuk tombol dan kover thumbnail
+        document.querySelectorAll(".btn-preview").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            const title = this.getAttribute("data-title");
+            const fileUrl = this.getAttribute("data-file");
+            const page1Url = this.getAttribute("data-page1");
+            const page2Url = this.getAttribute("data-page2");
+
+            modalTitle.textContent = title;
+            imgPage1.src = page1Url;
+            imgPage2.src = page2Url;
+            modalDownloadBtn.setAttribute("href", fileUrl);
+
+            previewModal.show();
+          });
+        });
+
+        // Reset src ketika modal ditutup
+        document.getElementById("previewModal").addEventListener("hidden.bs.modal", function () {
+          imgPage1.src = "";
+          imgPage2.src = "";
+        });
+      });
+    </script>
+  </body>
+</html>
