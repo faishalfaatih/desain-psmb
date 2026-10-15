@@ -35,12 +35,11 @@
       /* Hero Section Background Image & Overlay */
       .hero-section {
         position: relative;
-        /* Overlay warna hijau gradasi transparan di atas gambar latar */
         background:
           linear-gradient(rgba(15, 56, 35, 0.75), rgba(10, 40, 25, 0.92)),
           url("hero-bg.jpeg") center/cover no-repeat;
         color: white;
-        padding: 100px 0 140px 0; /* Padding bawah lebih besar untuk ruang overlapping card */
+        padding: 100px 0 140px 0;
         border-radius: 0;
       }
 
@@ -145,25 +144,22 @@
       /* CSS Grid Responsive untuk Accordion Keunggulan */
       .accordion-grid {
         display: grid;
-        grid-template-columns: 1fr; /* Default 1 kolom untuk mobile */
-        gap: 1rem; /* Jarak seragam vertikal untuk mobile */
+        grid-template-columns: 1fr;
+        gap: 1rem;
       }
 
       @media (min-width: 992px) {
-        /* Tampilan Desktop / PC */
         .accordion-grid {
-          grid-template-columns: repeat(2, 1fr); /* 2 kolom di PC */
-          gap: 1.25rem 1.5rem; /* Jarak antar baris dan kolom */
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.25rem 1.5rem;
         }
       }
 
-      /* Scroll Snap & Custom Scrollbar Carousel Tokoh */
+      /* Scroll Snap & Custom Scrollbar Carousel Tokoh (Kompatibel Safari iOS) */
       .horizontal-scroll-snap {
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-
-        /* Sembunyikan scrollbar untuk Firefox, IE, dan Edge */
+        /* CATATAN: -webkit-overflow-scrolling: touch; dihapus untuk mencegah konflik script auto-scroll di Safari iOS */
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
@@ -172,19 +168,8 @@
         scroll-snap-align: start;
       }
 
-      /* Sembunyikan scrollbar untuk Chrome, Safari, dan Opera */
       .horizontal-scroll-snap::-webkit-scrollbar {
         display: none;
-      }
-
-      .horizontal-scroll-snap::-webkit-scrollbar-track {
-        background: var(--bs-light-green);
-        border-radius: 10px;
-      }
-
-      .horizontal-scroll-snap::-webkit-scrollbar-thumb {
-        background: var(--bs-primary-green);
-        border-radius: 10px;
       }
     </style>
   </head>
@@ -205,7 +190,7 @@
           <!-- Menu Navigasi Tengah (mx-auto) -->
           <ul class="navbar-nav mx-auto align-items-lg-center my-2 my-lg-0">
             <li class="nav-item me-lg-3">
-              <a class="nav-link active fw-semibold text-center" href="psmb.html">Beranda</a>
+              <a class="nav-link active fw-semibold text-center" href="index.html">Beranda</a>
             </li>
             <li class="nav-item me-lg-3">
               <a class="nav-link fw-semibold text-center" href="brosur.html">Brosur</a>
@@ -217,10 +202,7 @@
 
           <!-- Tombol Masuk & Daftar Sekarang (Kanan) -->
           <div class="d-flex justify-content-center justify-content-lg-end gap-2 mt-2 mt-lg-0">
-            <!-- Tombol Masuk -->
             <a class="btn btn-outline-success rounded-pill px-4 fw-bold" href="login.html"> <i class="bi bi-box-arrow-in-right me-1"></i> Masuk </a>
-
-            <!-- Tombol Daftar Sekarang -->
             <a class="btn btn-success rounded-pill px-4 fw-bold" href="#unit-pendidikan"> <i class="bi bi-pencil-square me-1"></i> Daftar Sekarang </a>
           </div>
         </div>
@@ -232,18 +214,11 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-9">
-            <!-- Pill Badge / Tag Label -->
             <span class="badge bg-white text-success px-4 py-2 rounded-pill fw-bold mb-3 shadow-sm border border-success border-opacity-10 fs-6 text-wrap"> <i class="bi bi-mortarboard-fill me-2"></i>PSMB Tahun Ajaran 2026/2027 </span>
-
-            <!-- Headline Utama -->
             <h1 class="display-4 fw-bold mb-3 text-white">Mewujudkan Generasi Qur'ani, Beradab, & Berakhlak Mulia</h1>
-
-            <!-- Deskripsi Singkat -->
             <p class="lead text-white mb-4 mx-auto opacity-75" style="max-width: 750px">
               Portal Resmi PSMB PPTQ Ibnu Abbas Klaten. Menghadirkan sistem pendidikan Islam terpadu yang memadukan keunggulan Al-Qur'an, Adab, dan Akademik Sains.
             </p>
-
-            <!-- Call to Action (CTA) Buttons -->
             <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
               <a href="#unit-pendidikan" class="btn btn-light btn-lg rounded-pill fw-bold text-success px-4 shadow-sm"> <i class="bi bi-pencil-square me-2"></i>Pilih Unit Pendidikan </a>
               <a href="#alur" class="btn btn-outline-light btn-lg rounded-pill fw-bold px-4"> Lihat Alur Pendaftaran <i class="bi bi-arrow-right ms-1"></i> </a>
@@ -253,14 +228,11 @@
       </div>
     </header>
 
-    <!-- OVERLAPPING CARD / FLOATING STATS BAR (Center Top Alignment) -->
+    <!-- OVERLAPPING CARD / FLOATING STATS BAR -->
     <div class="container floating-stats-bar">
       <div class="card border-0 rounded-4 shadow-lg bg-white p-4">
-        <!-- Gunakan align-items-start agar setiap kolom dimulai dari posisi atas -->
         <div class="row g-4 text-center align-items-start">
-          <!-- Stats 1: 5 Jenjang -->
           <div class="col-6 col-md-3">
-            <!-- Hapus h-100 dan justify-content-between agar subteks rapat di bawah judul -->
             <div class="stat-item p-2">
               <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
                 <i class="bi bi-building fs-3"></i>
@@ -269,8 +241,6 @@
               <span class="text-muted small fw-semibold">Kuttab, SMP, SMA, KMI, MA</span>
             </div>
           </div>
-
-          <!-- Stats 2: 2500+ Santri -->
           <div class="col-6 col-md-3">
             <div class="stat-item p-2">
               <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
@@ -280,8 +250,6 @@
               <span class="text-muted small fw-semibold">Santri & Mahasantri</span>
             </div>
           </div>
-
-          <!-- Stats 3: Akreditasi A -->
           <div class="col-6 col-md-3">
             <div class="stat-item p-2">
               <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
@@ -291,8 +259,6 @@
               <span class="text-muted small fw-semibold">Lembaga Terakreditasi Unggul</span>
             </div>
           </div>
-
-          <!-- Stats 4: Bersanad -->
           <div class="col-6 col-md-3">
             <div class="stat-item p-2">
               <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
@@ -722,7 +688,7 @@
       </div>
     </section>
 
-    <!-- SECTION KEUNGGULAN (REVISED FULL) -->
+    <!-- SECTION KEUNGGULAN -->
     <section id="keunggulan" class="py-5">
       <div class="container py-4">
         <div class="text-center mb-5">
@@ -731,9 +697,7 @@
           <p class="text-muted mx-auto" style="max-width: 600px">Komitmen kami dalam menghadirkan pendidikan Islam berkualitas, seimbang antara Al-Qur'an, Adab, dan Prestasi Akademik.</p>
         </div>
 
-        <!-- 1 Accordion Utama Menggunakan Class Grid CSS -->
         <div class="accordion accordion-grid" id="accordionKeunggulan">
-          <!-- Item 1 -->
           <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
             <h2 class="accordion-header" id="headingOne">
               <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -748,7 +712,6 @@
             </div>
           </div>
 
-          <!-- Item 2 -->
           <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
             <h2 class="accordion-header" id="headingTwo">
               <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -763,7 +726,6 @@
             </div>
           </div>
 
-          <!-- Item 3 -->
           <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
             <h2 class="accordion-header" id="headingThree">
               <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -778,7 +740,6 @@
             </div>
           </div>
 
-          <!-- Item 4 -->
           <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
             <h2 class="accordion-header" id="headingFour">
               <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -793,7 +754,6 @@
             </div>
           </div>
 
-          <!-- Item 5 -->
           <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
             <h2 class="accordion-header" id="headingFive">
               <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -808,7 +768,6 @@
             </div>
           </div>
 
-          <!-- Item 6 -->
           <div class="accordion-item border-0 rounded-4 shadow-sm overflow-hidden">
             <h2 class="accordion-header" id="headingSix">
               <button class="accordion-button collapsed d-flex align-items-center gap-3 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -878,7 +837,6 @@
             <h2 class="fw-bold display-6 mt-1">Rekomendasi Tokoh</h2>
           </div>
 
-          <!-- Container Scroll Horizontal -->
           <div class="row flex-nowrap overflow-x-auto pb-3 horizontal-scroll-snap g-3 g-md-4">
             <div class="col-12 col-md-6 flex-shrink-0">
               <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
@@ -921,16 +879,14 @@
           </div>
         </div>
 
-        <!-- KISAH SUKSES  -->
+        <!-- KISAH SUKSES -->
         <div class="mb-5">
           <div class="text-center mb-4">
             <span class="text-success fw-bold text-uppercase tracking-wider">Kisah Sukses</span>
             <h2 class="fw-bold display-6 mt-1">Success Story Alumni</h2>
           </div>
 
-          <!-- PERUBAHAN 1: Tambahkan class horizontal scroll di bawah ini -->
           <div class="row flex-nowrap overflow-x-auto pb-3 horizontal-scroll-snap g-3 g-md-4">
-            <!-- Alumni 1 (PERUBAHAN 2: Tambahkan col-12 & flex-shrink-0) -->
             <div class="col-12 col-md-6 col-lg-4 flex-shrink-0">
               <div class="card border-0 rounded-4 shadow-sm testimonial-card p-4 h-100 bg-white text-center">
                 <img src="alumni-zaki.jpg" alt="Ahmad Zaki" class="w-100 rounded-3 object-fit-cover mb-3 border border-2 border-success-subtle shadow-sm" style="aspect-ratio: 3/4" />
@@ -943,7 +899,6 @@
               </div>
             </div>
 
-            <!-- Alumni 2 -->
             <div class="col-12 col-md-6 col-lg-4 flex-shrink-0">
               <div class="card border-0 rounded-4 shadow-sm testimonial-card p-4 h-100 bg-white text-center">
                 <img src="alumni-hilman.jpg" alt="Ustadz Hilman" class="w-100 rounded-3 object-fit-cover mb-3 border border-2 border-success-subtle shadow-sm" style="aspect-ratio: 3/4" />
@@ -956,7 +911,6 @@
               </div>
             </div>
 
-            <!-- Alumni 3 -->
             <div class="col-12 col-md-6 col-lg-4 flex-shrink-0">
               <div class="card border-0 rounded-4 shadow-sm testimonial-card p-4 h-100 bg-white text-center">
                 <img src="alumni-fathur.jpg" alt="Fathur Rahman" class="w-100 rounded-3 object-fit-cover mb-3 border border-2 border-success-subtle shadow-sm" style="aspect-ratio: 3/4" />
@@ -971,15 +925,14 @@
           </div>
         </div>
 
+        <!-- TESTIMONI WALI SANTRI -->
         <div>
           <div class="text-center mb-4">
             <span class="text-success fw-bold text-uppercase tracking-wider">Kesan Orang Tua</span>
             <h2 class="fw-bold display-6 mt-1">Testimoni Wali Santri</h2>
           </div>
 
-          <!-- PERUBAHAN 1: Tambahkan flex-nowrap, overflow-x-auto, pb-3, horizontal-scroll-snap, dll -->
           <div class="row flex-nowrap overflow-x-auto pb-3 horizontal-scroll-snap g-3 g-md-4">
-            <!-- PERUBAHAN 2: Tambahkan col-12 dan flex-shrink-0 pada item 1 -->
             <div class="col-12 col-md-6 flex-shrink-0">
               <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
                 <div class="d-flex align-items-center mb-3">
@@ -992,7 +945,6 @@
               </div>
             </div>
 
-            <!-- PERUBAHAN 2: Tambahkan col-12 dan flex-shrink-0 pada item 2 -->
             <div class="col-12 col-md-6 flex-shrink-0">
               <div class="card border-0 rounded-4 shadow-sm p-4 h-100 bg-white">
                 <div class="d-flex align-items-center mb-3">
@@ -1012,7 +964,6 @@
     <footer class="py-5">
       <div class="container">
         <div class="row g-4">
-          <!-- Kolom 1: Profil / About -->
           <div class="col-lg-4">
             <a class="navbar-brand d-flex align-items-center fw-bold text-white fs-4 mb-3" href="#">
               <img src="pptq.png" alt="Logo Ibnu Abbas" height="36" class="me-2" />
@@ -1021,7 +972,6 @@
             <p class="small text-white-50 pe-lg-3">Portal Resmi Penerimaan Santri & Mahasantri Baru (PSMB) PPTQ Ibnu Abbas Klaten. Mewujudkan pendidikan terpadu Al-Qur'an, Sains, dan Adab.</p>
           </div>
 
-          <!-- Kolom 2: Lokasi Kampus -->
           <div class="col-md-6 col-lg-5">
             <h6 class="text-white fw-bold mb-3">Lokasi Kampus</h6>
             <ul class="list-unstyled small text-white-50 mb-0">
@@ -1049,7 +999,6 @@
             </ul>
           </div>
 
-          <!-- Kolom 3: Beberapa Nomor WA Admin -->
           <div class="col-md-6 col-lg-3">
             <h6 class="text-white fw-bold mb-3">Panitia PSMB & Kontak</h6>
             <ul class="list-unstyled small text-white-50 mb-0">
@@ -1057,24 +1006,20 @@
                 <div class="fw-semibold text-white-50">SMPIT & SMAIT Putra:</div>
                 <a href="https://wa.me/6281234567890" target="_blank" class="text-decoration-none text-success-subtle"> +62 812-3456-7890 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
               </li>
-
               <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
                 <div class="fw-semibold text-white-50">SMPIT & SMAIT Putri:</div>
                 <a href="https://wa.me/6281398765432" target="_blank" class="text-decoration-none text-success-subtle"> +62 813-9876-5432 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
               </li>
-
               <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
                 <div class="fw-semibold text-white-50">Kuttab:</div>
                 <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
               </li>
-
               <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
                 <div class="fw-semibold text-white-50">KMI:</div>
                 <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
               </li>
-
               <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
-                <div class="fw-semibold text-white-50">Ma'had 'Aly':</div>
+                <div class="fw-semibold text-white-50">Ma'had 'Aly:</div>
                 <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
               </li>
             </ul>
@@ -1095,43 +1040,74 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Ambil SEMUA elemen yang memiliki class horizontal-scroll-snap
+    // Ambil SEMUA kontainer carousel yang menggunakan scroll-snap
     const scrollContainers = document.querySelectorAll(".horizontal-scroll-snap");
 
     scrollContainers.forEach((scrollContainer) => {
-      // 1. Duplikasi seluruh card agar carousel tidak pernah kehabisan elemen
-      const cards = Array.from(scrollContainer.children);
-      cards.forEach((card) => {
+      // 1. Simpan elemen card asli sebelum duplikasi
+      const originalCards = Array.from(scrollContainer.children);
+      if (originalCards.length === 0) return;
+
+      // 2. Duplikasi seluruh card agar efek looping tidak pernah habis
+      originalCards.forEach((card) => {
         const cloneNode = card.cloneNode(true);
         scrollContainer.appendChild(cloneNode);
       });
 
+      let currentIndex = 0;
       let autoScrollInterval;
-      const intervalTime = 3000; // Jeda 3 detik per geser
+      const intervalTime = 3000; // Jeda 3 detik per perpindahan kartu
 
-      const startAutoScroll = () => {
-        autoScrollInterval = setInterval(() => {
-          const cardWidth = scrollContainer.querySelector('[class*="col-"]').offsetWidth;
-          const originalWidth = scrollContainer.scrollWidth / 2;
-
-          // Jika scroll mencapai batas elemen duplikat, kembalikan ke awal secara instan (tanpa smooth)
-          if (scrollContainer.scrollLeft >= originalWidth - 5) {
-            scrollContainer.style.scrollBehavior = "auto";
-            scrollContainer.scrollLeft = 0;
-          }
-
-          // Jalankan scroll smooth ke kanan sebesar 1 card
-          scrollContainer.style.scrollBehavior = "smooth";
-          scrollContainer.scrollBy({ left: cardWidth });
-        }, intervalTime);
+      // Fungsi untuk mengukur lebar langkah antar kartu secara dinamis & presisi via offsetLeft
+      const getCardWidth = () => {
+        if (originalCards.length > 1) {
+          return originalCards[1].offsetLeft - originalCards[0].offsetLeft;
+        }
+        return originalCards[0].offsetWidth;
       };
 
-      const stopAutoScroll = () => clearInterval(autoScrollInterval);
+      const scrollNextCard = () => {
+        const cardWidth = getCardWidth();
+        currentIndex++;
+
+        // Jika sudah melewati set kartu asli, geser ke klon pertama lalu reset instan ke 0
+        if (currentIndex >= originalCards.length) {
+          scrollContainer.scrollTo({
+            left: cardWidth * currentIndex,
+            behavior: "smooth",
+          });
+
+          // Setelah animasi selesai, kembalikan posisi ke awal (0) secara instan tanpa animasi
+          setTimeout(() => {
+            scrollContainer.style.scrollBehavior = "auto";
+            currentIndex = 0;
+            scrollContainer.scrollLeft = 0;
+
+            // Kembalikan behavior smooth setelah reset selesai
+            setTimeout(() => {
+              scrollContainer.style.scrollBehavior = "smooth";
+            }, 50);
+          }, 500);
+        } else {
+          scrollContainer.scrollTo({
+            left: cardWidth * currentIndex,
+            behavior: "smooth",
+          });
+        }
+      };
+
+      const startAutoScroll = () => {
+        autoScrollInterval = setInterval(scrollNextCard, intervalTime);
+      };
+
+      const stopAutoScroll = () => {
+        clearInterval(autoScrollInterval);
+      };
 
       // Jalankan auto-scroll
       startAutoScroll();
 
-      // Pause saat kursor diatasnya / disentuh
+      // Pause otomatis saat kursor di atasnya atau layar disentuh di perangkat mobile (iOS / Android)
       scrollContainer.addEventListener("mouseenter", stopAutoScroll);
       scrollContainer.addEventListener("mouseleave", startAutoScroll);
       scrollContainer.addEventListener("touchstart", stopAutoScroll, { passive: true });
