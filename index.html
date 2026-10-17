@@ -71,7 +71,8 @@
       /* Hover animation */
       .service-card,
       .feature-card,
-      .testimonial-card {
+      .testimonial-card,
+      .announcement-card {
         transition: all 0.3s ease;
         border: 1px solid rgba(0, 0, 0, 0.05);
       }
@@ -80,6 +81,10 @@
       .testimonial-card:hover {
         transform: translateY(-8px);
         box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1) !important;
+      }
+      .announcement-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.08) !important;
       }
 
       .icon-box {
@@ -155,11 +160,10 @@
         }
       }
 
-      /* Scroll Snap & Custom Scrollbar Carousel Tokoh (Kompatibel Safari iOS) */
+      /* Scroll Snap & Custom Scrollbar Carousel Tokoh */
       .horizontal-scroll-snap {
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-        /* CATATAN: -webkit-overflow-scrolling: touch; dihapus untuk mencegah konflik script auto-scroll di Safari iOS */
         scrollbar-width: none;
         -ms-overflow-style: none;
       }
@@ -237,8 +241,8 @@
               <div class="icon-box bg-success-subtle text-success mx-auto mb-3">
                 <i class="bi bi-building fs-3"></i>
               </div>
-              <h3 class="fw-bold text-dark mb-1">5 Jenjang</h3>
-              <span class="text-muted small fw-semibold">Kuttab, SMP, SMA, KMI, MA</span>
+              <h3 class="fw-bold text-dark mb-1">5 Unit</h3>
+              <span class="text-muted small fw-semibold">Kuttab, KMI, SMP, SMA, MA</span>
             </div>
           </div>
           <div class="col-6 col-md-3">
@@ -272,6 +276,7 @@
       </div>
     </div>
 
+    <!-- SECTION ALUR PENDAFTARAN -->
     <section id="alur" class="py-5">
       <div class="container py-4">
         <div class="text-center mb-5">
@@ -324,7 +329,75 @@
       </div>
     </section>
 
-    <section id="unit-pendidikan" class="py-5 bg-white border-top border-bottom">
+    <!-- SECTION PENGUMUMAN TERBARU & DISEMATKAN -->
+    <section id="pengumuman-terbaru" class="py-5 bg-white border-top border-bottom">
+      <div class="container py-4">
+        <div class="row align-items-center mb-5">
+          <div class="col-md-8 text-center text-md-start mb-3 mb-md-0">
+            <span class="text-success fw-bold text-uppercase tracking-wider">Pusat Informasi</span>
+            <h2 class="fw-bold display-6 mt-1">Pengumuman Terbaru & Disematkan</h2>
+            <p class="text-muted mb-0">Informasi penting, jadwal tes, dan kebijakan terbaru seputar PSMB PPTQ Ibnu Abbas Klaten.</p>
+          </div>
+          <div class="col-md-4 text-center text-md-end">
+            <a href="pengumuman.html" class="btn btn-outline-success rounded-pill px-4 fw-bold"> Lihat Semua Pengumuman <i class="bi bi-arrow-right ms-1"></i> </a>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Pengumuman 1 (Disematkan / Pinned) - Highlight Utama -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border border-success border-2 rounded-4 shadow announcement-card bg-white overflow-hidden d-flex flex-column position-relative">
+              <!-- Badge Disematkan -->
+              <div class="position-absolute top-0 start-0 m-3 z-3">
+                <span class="badge bg-warning text-dark fw-bold px-3 py-2 rounded-pill shadow-sm"> <i class="bi bi-pin-fill me-1"></i> Disematkan </span>
+              </div>
+              <img src="img-pengumuman-1.jpg" class="card-img-top" alt="Ujian Seleksi Tahap 1" style="height: 200px; object-fit: cover" />
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="d-flex justify-content-end align-items-center mb-3">
+                  <small class="text-muted"><i class="bi bi-calendar-event me-1"></i> 15 Okt 2026</small>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Jadwal Resmi Ujian Seleksi Tahap 1 Gelombang 1</h5>
+                <p class="text-muted small mb-4 flex-grow-1">Informasi penting mengenai ruang ujian, tata tertib, serta perlengkapan yang wajib dibawa saat mengikuti tes tertulis dan wawancara.</p>
+                <a href="pengumuman.html" class="btn btn-success rounded-pill fw-semibold w-100 mt-auto"> Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pengumuman 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 rounded-4 shadow-sm announcement-card bg-white overflow-hidden d-flex flex-column">
+              <img src="img-pengumuman-2.jpg" class="card-img-top" alt="Hasil Seleksi Administrasi" style="height: 200px; object-fit: cover" />
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="d-flex justify-content-end align-items-center mb-3">
+                  <small class="text-muted"><i class="bi bi-calendar-event me-1"></i> 10 Okt 2026</small>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Hasil Seleksi Administrasi Berkas Pendaftaran</h5>
+                <p class="text-muted small mb-4 flex-grow-1">Pengumuman peserta yang dinyatakan lolos verifikasi berkas administrasi dan berhak melanjutkan ke tahap ujian berikutnya.</p>
+                <a href="pengumuman.html" class="btn btn-outline-success rounded-pill fw-semibold w-100 mt-auto"> Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pengumuman 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 rounded-4 shadow-sm announcement-card bg-white overflow-hidden d-flex flex-column">
+              <img src="img-pengumuman-3.jpg" class="card-img-top" alt="Kuttab Tahmidi Putra" style="height: 200px; object-fit: cover" />
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="d-flex justify-content-end align-items-center mb-3">
+                  <small class="text-muted"><i class="bi bi-calendar-event me-1"></i> 01 Okt 2026</small>
+                </div>
+                <h5 class="fw-bold text-dark mb-2">Pembukaan Kuota Tambahan Kuttab Tahmidi Putra</h5>
+                <p class="text-muted small mb-4 flex-grow-1">Menindaklanjuti animo pendaftar yang tinggi, panitia membuka tambahan kuota terbatas khusus untuk unit Kuttab Tahmidi Putra.</p>
+                <a href="pengumuman.html" class="btn btn-outline-success rounded-pill fw-semibold w-100 mt-auto"> Baca Selengkapnya <i class="bi bi-arrow-right ms-1"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION UNIT PENDIDIKAN -->
+    <section id="unit-pendidikan" class="py-5 bg-white border-bottom">
       <div class="container py-4">
         <div class="text-center mb-5">
           <span class="text-success fw-bold text-uppercase tracking-wider">Unit Pendidikan</span>
@@ -337,13 +410,13 @@
             <button class="nav-link active" id="kuttab-tab" data-bs-toggle="pill" data-bs-target="#kuttab" type="button" role="tab">Kuttab</button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="kmi-tab" data-bs-toggle="pill" data-bs-target="#kmi" type="button" role="tab">KMI</button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="smpit-tab" data-bs-toggle="pill" data-bs-target="#smpit" type="button" role="tab">SMPIT</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="smait-tab" data-bs-toggle="pill" data-bs-target="#smait" type="button" role="tab">SMAIT</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="kmi-tab" data-bs-toggle="pill" data-bs-target="#kmi" type="button" role="tab">KMI</button>
           </li>
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="mahad-tab" data-bs-toggle="pill" data-bs-target="#mahad" type="button" role="tab">Ma'had 'Aly</button>
@@ -359,6 +432,7 @@
                   <h3 class="fw-bold text-success mb-1">Unit Pendidikan Kuttab</h3>
                   <p class="text-muted mb-0">Pendidikan dasar berkarakter Al-Qur'an dan As-Sunnah.</p>
                 </div>
+                <a href="brosur.html" class="btn btn-success rounded-pill px-4 fw-bold mt-2 mt-sm-0"> <i class="bi bi-file-earmark-pdf-fill me-1"></i> Unduh Brosur </a>
               </div>
 
               <div class="mb-3">
@@ -430,6 +504,69 @@
             </div>
           </div>
 
+          <!-- TAB KMI -->
+          <div class="tab-pane fade" id="kmi" role="tabpanel">
+            <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <div>
+                  <h3 class="fw-bold text-success mb-1">Unit Pendidikan KMI</h3>
+                  <p class="text-muted mb-0">Kulliyyatul Mu'allimin Al-Islamiyyah (Program Khusus Kaderisasi Du'at).</p>
+                </div>
+                <a href="brosur.html" class="btn btn-success rounded-pill px-4 fw-bold mt-2 mt-sm-0"> <i class="bi bi-file-earmark-pdf-fill me-1"></i> Unduh Brosur </a>
+              </div>
+
+              <div class="mb-3">
+                <span class="fw-bold me-2">Program Tersedia:</span>
+                <span class="badge bg-success-subtle text-success me-1">KMI Putra</span>
+              </div>
+
+              <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-calendar-check me-2"></i>Waktu Pelaksanaan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pendaftaran Online: 15 November - 20 Desember 2026</li>
+                      <li>Pelaksanaan Tes: 27 Desember 2026</li>
+                      <li>Pengumuman Hasil: 8 Januari 2027</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-card-checklist me-2"></i>Syarat Pendaftaran</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Pas Foto Terbaru.</li>
+                      <li>Scan Kartu NISN.</li>
+                      <li>Scan Surat Keterangan Siswa Aktif dari Sekolah.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-cash-stack me-2"></i>Biaya Pendidikan</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Biaya Pendaftaran: Rp 350.000</li>
+                      <li>Biaya Daftar Ulang: Rp 19.800.000</li>
+                      <li>Syahriah: Rp 1.600.000 / bulan</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
+                    <h6 class="fw-bold text-success"><i class="bi bi-journal-text me-2"></i>Materi Ujian</h6>
+                    <ul class="small text-muted mb-0 ps-3">
+                      <li>Bahasa Arab</li>
+                      <li>Fiqih</li>
+                      <li>Matematika</li>
+                      <li>Tes Membaca & Menghafal Qur'an</li>
+                      <li>Wawancara Santri dan Wali Santri</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <!-- TAB SMPIT -->
           <div class="tab-pane fade" id="smpit" role="tabpanel">
             <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
@@ -438,6 +575,7 @@
                   <h3 class="fw-bold text-success mb-1">Unit Pendidikan SMPIT</h3>
                   <p class="text-muted mb-0">Sekolah Menengah Pertama Islam Terpadu berbasis Pesantren Tahfizh.</p>
                 </div>
+                <a href="brosur.html" class="btn btn-success rounded-pill px-4 fw-bold mt-2 mt-sm-0"> <i class="bi bi-file-earmark-pdf-fill me-1"></i> Unduh Brosur </a>
               </div>
 
               <div class="mb-3">
@@ -500,6 +638,7 @@
                   <h3 class="fw-bold text-success mb-1">Unit Pendidikan SMAIT</h3>
                   <p class="text-muted mb-0">Sekolah Menengah Atas Islam Terpadu berfokus pada integrasi sains dan Al-Qur'an.</p>
                 </div>
+                <a href="brosur.html" class="btn btn-success rounded-pill px-4 fw-bold mt-2 mt-sm-0"> <i class="bi bi-file-earmark-pdf-fill me-1"></i> Unduh Brosur </a>
               </div>
 
               <div class="mb-3">
@@ -555,68 +694,6 @@
             </div>
           </div>
 
-          <!-- TAB KMI -->
-          <div class="tab-pane fade" id="kmi" role="tabpanel">
-            <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
-              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 pb-3 border-bottom">
-                <div>
-                  <h3 class="fw-bold text-success mb-1">Unit Pendidikan KMI</h3>
-                  <p class="text-muted mb-0">Kulliyyatul Mu'allimin Al-Islamiyyah (Program Khusus Kaderisasi Du'at).</p>
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <span class="fw-bold me-2">Program Tersedia:</span>
-                <span class="badge bg-success-subtle text-success me-1">KMI Putra</span>
-              </div>
-
-              <div class="row g-4 mt-1">
-                <div class="col-md-6">
-                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
-                    <h6 class="fw-bold text-success"><i class="bi bi-calendar-check me-2"></i>Waktu Pelaksanaan</h6>
-                    <ul class="small text-muted mb-0 ps-3">
-                      <li>Pendaftaran Online: 15 November - 20 Desember 2026</li>
-                      <li>Pelaksanaan Tes: 27 Desember 2026</li>
-                      <li>Pengumuman Hasil: 8 Januari 2027</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
-                    <h6 class="fw-bold text-success"><i class="bi bi-card-checklist me-2"></i>Syarat Pendaftaran</h6>
-                    <ul class="small text-muted mb-0 ps-3">
-                      <li>Pas Foto Terbaru.</li>
-                      <li>Scan Kartu NISN.</li>
-                      <li>Scan Surat Keterangan Siswa Aktif dari Sekolah.</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
-                    <h6 class="fw-bold text-success"><i class="bi bi-cash-stack me-2"></i>Biaya Pendidikan</h6>
-                    <ul class="small text-muted mb-0 ps-3">
-                      <li>Biaya Pendaftaran: Rp 350.000</li>
-                      <li>Biaya Daftar Ulang: Rp 19.800.000</li>
-                      <li>Syahriah: Rp 1.600.000 / bulan</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="bg-white p-3 rounded-3 shadow-sm h-100">
-                    <h6 class="fw-bold text-success"><i class="bi bi-journal-text me-2"></i>Materi Ujian</h6>
-                    <ul class="small text-muted mb-0 ps-3">
-                      <li>Bahasa Arab</li>
-                      <li>Fiqih</li>
-                      <li>Matematika</li>
-                      <li>Tes Membaca & Menghafal Qur'an</li>
-                      <li>Wawancara Santri dan Wali Santri</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <!-- TAB MA'HAD 'ALY -->
           <div class="tab-pane fade" id="mahad" role="tabpanel">
             <div class="card border-0 rounded-4 shadow-sm p-4 bg-light">
@@ -625,6 +702,7 @@
                   <h3 class="fw-bold text-success mb-1">Unit Pendidikan Ma'had 'Aly</h3>
                   <p class="text-muted mb-0">Perguruan Tinggi Keagamaan Islam Takhashshus Lughah Arabiyah & Dirasat Islamiyah.</p>
                 </div>
+                <a href="brosur.html" class="btn btn-success rounded-pill px-4 fw-bold mt-2 mt-sm-0"> <i class="bi bi-file-earmark-pdf-fill me-1"></i> Unduh Brosur </a>
               </div>
 
               <div class="mb-3">
@@ -785,6 +863,7 @@
       </div>
     </section>
 
+    <!-- SECTION ALUMNI -->
     <section id="alumni" class="py-5 bg-white border-top border-bottom">
       <div class="container py-4">
         <div class="text-center mb-5">
@@ -828,6 +907,7 @@
       </div>
     </section>
 
+    <!-- SECTION TESTIMONI -->
     <section id="testimoni" class="py-5">
       <div class="container py-4">
         <!-- REKOMENDASI TOKOH -->
@@ -961,6 +1041,7 @@
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="py-5">
       <div class="container">
         <div class="row g-4">
@@ -1003,20 +1084,20 @@
             <h6 class="text-white fw-bold mb-3">Panitia PSMB & Kontak</h6>
             <ul class="list-unstyled small text-white-50 mb-0">
               <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
-                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putra:</div>
-                <a href="https://wa.me/6281234567890" target="_blank" class="text-decoration-none text-success-subtle"> +62 812-3456-7890 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
-              </li>
-              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
-                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putri:</div>
-                <a href="https://wa.me/6281398765432" target="_blank" class="text-decoration-none text-success-subtle"> +62 813-9876-5432 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
-              </li>
-              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
                 <div class="fw-semibold text-white-50">Kuttab:</div>
                 <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
               </li>
               <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
                 <div class="fw-semibold text-white-50">KMI:</div>
                 <a href="https://wa.me/6281512345678" target="_blank" class="text-decoration-none text-success-subtle"> +62 815-1234-5678 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putra:</div>
+                <a href="https://wa.me/6281234567890" target="_blank" class="text-decoration-none text-success-subtle"> +62 812-3456-7890 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
+              </li>
+              <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
+                <div class="fw-semibold text-white-50">SMPIT & SMAIT Putri:</div>
+                <a href="https://wa.me/6281398765432" target="_blank" class="text-decoration-none text-success-subtle"> +62 813-9876-5432 <i class="bi bi-box-arrow-up-right small ms-1"></i> </a>
               </li>
               <li class="mb-2 ps-3 border-start border-success border-2 ms-1">
                 <div class="fw-semibold text-white-50">Ma'had 'Aly:</div>
@@ -1035,83 +1116,73 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const scrollContainers = document.querySelectorAll(".horizontal-scroll-snap");
+
+        scrollContainers.forEach((scrollContainer) => {
+          const originalCards = Array.from(scrollContainer.children);
+          if (originalCards.length === 0) return;
+
+          originalCards.forEach((card) => {
+            const cloneNode = card.cloneNode(true);
+            scrollContainer.appendChild(cloneNode);
+          });
+
+          let currentIndex = 0;
+          let autoScrollInterval;
+          const intervalTime = 3000;
+
+          const getCardWidth = () => {
+            if (originalCards.length > 1) {
+              return originalCards[1].offsetLeft - originalCards[0].offsetLeft;
+            }
+            return originalCards[0].offsetWidth;
+          };
+
+          const scrollNextCard = () => {
+            const cardWidth = getCardWidth();
+            currentIndex++;
+
+            if (currentIndex >= originalCards.length) {
+              scrollContainer.scrollTo({
+                left: cardWidth * currentIndex,
+                behavior: "smooth",
+              });
+
+              setTimeout(() => {
+                scrollContainer.style.scrollBehavior = "auto";
+                currentIndex = 0;
+                scrollContainer.scrollLeft = 0;
+
+                setTimeout(() => {
+                  scrollContainer.style.scrollBehavior = "smooth";
+                }, 50);
+              }, 500);
+            } else {
+              scrollContainer.scrollTo({
+                left: cardWidth * currentIndex,
+                behavior: "smooth",
+              });
+            }
+          };
+
+          const startAutoScroll = () => {
+            autoScrollInterval = setInterval(scrollNextCard, intervalTime);
+          };
+
+          const stopAutoScroll = () => {
+            clearInterval(autoScrollInterval);
+          };
+
+          startAutoScroll();
+
+          scrollContainer.addEventListener("mouseenter", stopAutoScroll);
+          scrollContainer.addEventListener("mouseleave", startAutoScroll);
+          scrollContainer.addEventListener("touchstart", stopAutoScroll, { passive: true });
+          scrollContainer.addEventListener("touchend", startAutoScroll, { passive: true });
+        });
+      });
+    </script>
   </body>
 </html>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // Ambil SEMUA kontainer carousel yang menggunakan scroll-snap
-    const scrollContainers = document.querySelectorAll(".horizontal-scroll-snap");
-
-    scrollContainers.forEach((scrollContainer) => {
-      // 1. Simpan elemen card asli sebelum duplikasi
-      const originalCards = Array.from(scrollContainer.children);
-      if (originalCards.length === 0) return;
-
-      // 2. Duplikasi seluruh card agar efek looping tidak pernah habis
-      originalCards.forEach((card) => {
-        const cloneNode = card.cloneNode(true);
-        scrollContainer.appendChild(cloneNode);
-      });
-
-      let currentIndex = 0;
-      let autoScrollInterval;
-      const intervalTime = 3000; // Jeda 3 detik per perpindahan kartu
-
-      // Fungsi untuk mengukur lebar langkah antar kartu secara dinamis & presisi via offsetLeft
-      const getCardWidth = () => {
-        if (originalCards.length > 1) {
-          return originalCards[1].offsetLeft - originalCards[0].offsetLeft;
-        }
-        return originalCards[0].offsetWidth;
-      };
-
-      const scrollNextCard = () => {
-        const cardWidth = getCardWidth();
-        currentIndex++;
-
-        // Jika sudah melewati set kartu asli, geser ke klon pertama lalu reset instan ke 0
-        if (currentIndex >= originalCards.length) {
-          scrollContainer.scrollTo({
-            left: cardWidth * currentIndex,
-            behavior: "smooth",
-          });
-
-          // Setelah animasi selesai, kembalikan posisi ke awal (0) secara instan tanpa animasi
-          setTimeout(() => {
-            scrollContainer.style.scrollBehavior = "auto";
-            currentIndex = 0;
-            scrollContainer.scrollLeft = 0;
-
-            // Kembalikan behavior smooth setelah reset selesai
-            setTimeout(() => {
-              scrollContainer.style.scrollBehavior = "smooth";
-            }, 50);
-          }, 500);
-        } else {
-          scrollContainer.scrollTo({
-            left: cardWidth * currentIndex,
-            behavior: "smooth",
-          });
-        }
-      };
-
-      const startAutoScroll = () => {
-        autoScrollInterval = setInterval(scrollNextCard, intervalTime);
-      };
-
-      const stopAutoScroll = () => {
-        clearInterval(autoScrollInterval);
-      };
-
-      // Jalankan auto-scroll
-      startAutoScroll();
-
-      // Pause otomatis saat kursor di atasnya atau layar disentuh di perangkat mobile (iOS / Android)
-      scrollContainer.addEventListener("mouseenter", stopAutoScroll);
-      scrollContainer.addEventListener("mouseleave", startAutoScroll);
-      scrollContainer.addEventListener("touchstart", stopAutoScroll, { passive: true });
-      scrollContainer.addEventListener("touchend", startAutoScroll, { passive: true });
-    });
-  });
-</script>
